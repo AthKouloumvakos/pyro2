@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pyro &mdash; pyro 3.1.post105+g7552cee documentation</title>
+  <title>pyro &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -35,15 +35,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> pyro
-            <img src="_static/logo.gif" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pyro
+              <img src="_static/logo.gif" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 3.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -64,12 +68,13 @@
 <p class="caption" role="heading"><span class="caption-text">Solvers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="advection_basics.html">Advection solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers_basics.html">Burgers’ Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_basics.html">Compressible hydrodynamics solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_compare.html">Compressible solver comparisons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid_basics.html">Multigrid solvers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid-examples.html">Multigrid examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multigrid.html">Multigrid Solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="diffusion_basics.html">Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="incompressible_basics.html">Incompressible hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompressible_viscous_basics.html">Incompressible viscous hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowmach_basics.html">Low Mach number hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swe_basics.html">Shallow water solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="particles_basics.html">Particles</a></li>
@@ -94,7 +99,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
 
         </div>
@@ -110,8 +115,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>pyro</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">pyro</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -121,32 +126,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="pyro">
-<h1>pyro<a class="headerlink" href="#pyro" title="Permalink to this heading">¶</a></h1>
+  <section id="pyro">
+<h1>pyro<a class="headerlink" href="#pyro" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pyro.html">pyro package</a><ul>
@@ -185,6 +166,20 @@
 <li class="toctree-l4"><a class="reference internal" href="pyro.advection_weno.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.advection_weno.html#module-pyro.advection_weno.fluxes">pyro.advection_weno.fluxes module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.advection_weno.html#module-pyro.advection_weno.simulation">pyro.advection_weno.simulation module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyro.burgers.html">pyro.burgers package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyro.burgers.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyro.burgers.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyro.burgers.html#module-pyro.burgers.burgers_interface">pyro.burgers.burgers_interface module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyro.burgers.html#module-pyro.burgers.simulation">pyro.burgers.simulation module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyro.viscous_burgers.html">pyro.viscous_burgers package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyro.viscous_burgers.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyro.viscous_burgers.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyro.viscous_burgers.html#module-pyro.viscous_burgers.interface">pyro.viscous_burgers.interface module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyro.viscous_burgers.html#module-pyro.viscous_burgers.simulation">pyro.viscous_burgers.simulation module</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="pyro.compressible.html">pyro.compressible package</a><ul>
@@ -247,6 +242,13 @@
 <li class="toctree-l4"><a class="reference internal" href="pyro.incompressible.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.incompressible.html#module-pyro.incompressible.incomp_interface">pyro.incompressible.incomp_interface module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.incompressible.html#module-pyro.incompressible.simulation">pyro.incompressible.simulation module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyro.incompressible_viscous.html">pyro.incompressible_viscous package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyro.incompressible_viscous.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyro.incompressible_viscous.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyro.incompressible_viscous.html#module-pyro.incompressible_viscous.BC">pyro.incompressible_viscous.BC module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyro.incompressible_viscous.html#module-pyro.incompressible_viscous.simulation">pyro.incompressible_viscous.simulation module</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="pyro.lm_atm.html">pyro.lm_atm package</a><ul>
@@ -346,7 +348,11 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="pyro.html#module-pyro.test">pyro.test module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="pyro.html#pyro.test.PyroTest"><code class="docutils literal notranslate"><span class="pre">PyroTest</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyro.html#pyro.test.avoid_interleaved_output"><code class="docutils literal notranslate"><span class="pre">avoid_interleaved_output()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyro.html#pyro.test.do_tests"><code class="docutils literal notranslate"><span class="pre">do_tests()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyro.html#pyro.test.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyro.html#pyro.test.run_test"><code class="docutils literal notranslate"><span class="pre">run_test()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyro.html#pyro.test.run_test_star"><code class="docutils literal notranslate"><span class="pre">run_test_star()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -366,7 +372,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, pyro development team.</p>
+    <p>&#169; Copyright 2023, pyro development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

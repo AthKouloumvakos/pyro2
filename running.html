@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Running &mdash; pyro 3.1.post105+g7552cee documentation</title>
+  <title>Running &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -35,15 +35,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> pyro
-            <img src="_static/logo.gif" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pyro
+              <img src="_static/logo.gif" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 3.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -69,12 +73,13 @@
 <p class="caption" role="heading"><span class="caption-text">Solvers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="advection_basics.html">Advection solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers_basics.html">Burgers’ Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_basics.html">Compressible hydrodynamics solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_compare.html">Compressible solver comparisons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid_basics.html">Multigrid solvers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid-examples.html">Multigrid examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multigrid.html">Multigrid Solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="diffusion_basics.html">Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="incompressible_basics.html">Incompressible hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompressible_viscous_basics.html">Incompressible viscous hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowmach_basics.html">Low Mach number hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swe_basics.html">Shallow water solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="particles_basics.html">Particles</a></li>
@@ -96,7 +101,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
 
         </div>
@@ -112,8 +117,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Running</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Running</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/running.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -123,38 +128,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="running">
-<h1>Running<a class="headerlink" href="#running" title="Permalink to this heading">¶</a></h1>
+  <section id="running">
+<h1>Running<a class="headerlink" href="#running" title="Permalink to this heading"></a></h1>
 <p>Pyro can be run in two ways: either from the commandline, using the
 <code class="docutils literal notranslate"><span class="pre">pyro_sim.py</span></code> script (this will be installed into your search path)
 and passing in the solver, problem and inputs as arguments, or by
 using the <a class="reference internal" href="pyro.html#pyro.pyro_sim.Pyro" title="pyro.pyro_sim.Pyro"><code class="xref py py-func docutils literal notranslate"><span class="pre">Pyro</span></code></a> class.</p>
 <section id="commandline">
-<h2>Commandline<a class="headerlink" href="#commandline" title="Permalink to this heading">¶</a></h2>
+<h2>Commandline<a class="headerlink" href="#commandline" title="Permalink to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">pyro_sim.py</span></code> script takes 3
 arguments: the solver name, the problem setup to run with that solver
 (this is defined in the solver’s <code class="docutils literal notranslate"><span class="pre">problems/</span></code> sub-directory), and the
@@ -165,15 +146,15 @@ directory).</p>
 span.prompt1:before {
   content: "$ ";
 }
-</style><span class="prompt1">pyro_sim.py compressible sedov inputs.sedov</span>
+</style><span class="prompt1">pyro_sim.py<span class="w"> </span>compressible<span class="w"> </span>sedov<span class="w"> </span>inputs.sedov</span>
 </pre></div></div><p>This knows to look for <code class="docutils literal notranslate"><span class="pre">inputs.sedov</span></code> in <code class="docutils literal notranslate"><span class="pre">compressible/problems/</span></code>
 (alternately, you can specify the full path for the inputs file).</p>
 <p>To run the smooth Gaussian advection problem with the advection solver, we would do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">pyro_sim.py advection smooth inputs.smooth</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">pyro_sim.py<span class="w"> </span>advection<span class="w"> </span>smooth<span class="w"> </span>inputs.smooth</span>
 </pre></div></div><p>Any runtime parameter can also be specified on the command line, after
 the inputs file. For example, to disable runtime visualization for the
 above run, we could do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">pyro_sim.py advection smooth inputs.smooth vis.dovis<span class="o">=</span><span class="m">0</span></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">pyro_sim.py<span class="w"> </span>advection<span class="w"> </span>smooth<span class="w"> </span>inputs.smooth<span class="w"> </span>vis.dovis<span class="o">=</span><span class="m">0</span></span>
 </pre></div></div><div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Quite often, the slowest part of the runtime is the visualization, so disabling
@@ -183,7 +164,7 @@ in  <a class="reference internal" href="analysis.html#analysis"><span class="std
 </div>
 </section>
 <section id="pyro-class">
-<h2>Pyro class<a class="headerlink" href="#pyro-class" title="Permalink to this heading">¶</a></h2>
+<h2>Pyro class<a class="headerlink" href="#pyro-class" title="Permalink to this heading"></a></h2>
 <p>Alternatively, pyro can be run using the <a class="reference internal" href="pyro.html#pyro.pyro_sim.Pyro" title="pyro.pyro_sim.Pyro"><code class="xref py py-func docutils literal notranslate"><span class="pre">Pyro</span></code></a> class. This provides
 an interface that enables simulations to be set up and run in a Jupyter notebook – see
 <code class="docutils literal notranslate"><span class="pre">examples/examples.ipynb</span></code> for an example notebook. A simulation can be set up and run
@@ -224,7 +205,7 @@ simulation forward by a single step, we’d run</p>
 single timestep and do output/visualization (if required).</p>
 </section>
 <section id="runtime-options">
-<h2>Runtime options<a class="headerlink" href="#runtime-options" title="Permalink to this heading">¶</a></h2>
+<h2>Runtime options<a class="headerlink" href="#runtime-options" title="Permalink to this heading"></a></h2>
 <p>The behavior of the main driver, the solver, and the problem setup can
 be controlled by runtime parameters specified in the inputs file (or
 via the command line or passed into the <code class="docutils literal notranslate"><span class="pre">initialize_problem</span></code> function).
@@ -351,7 +332,7 @@ given simulation.</p>
 <tbody>
 <tr class="row-even"><td><p>xmin</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p></td>
-<td><p>domain minumum x-coordinate</p></td>
+<td><p>domain minimum x-coordinate</p></td>
 </tr>
 <tr class="row-odd"><td><p>xmax</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
@@ -461,7 +442,7 @@ given simulation.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, pyro development team.</p>
+    <p>&#169; Copyright 2023, pyro development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

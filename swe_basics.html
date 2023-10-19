@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shallow water solver &mdash; pyro 3.1.post105+g7552cee documentation</title>
+  <title>Shallow water solver &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -37,15 +37,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> pyro
-            <img src="_static/logo.gif" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pyro
+              <img src="_static/logo.gif" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 3.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -66,12 +70,13 @@
 <p class="caption" role="heading"><span class="caption-text">Solvers</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="advection_basics.html">Advection solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers_basics.html">Burgers’ Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_basics.html">Compressible hydrodynamics solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_compare.html">Compressible solver comparisons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid_basics.html">Multigrid solvers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid-examples.html">Multigrid examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multigrid.html">Multigrid Solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="diffusion_basics.html">Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="incompressible_basics.html">Incompressible hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompressible_viscous_basics.html">Incompressible viscous hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowmach_basics.html">Low Mach number hydrodynamics solver</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Shallow water solver</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#example-problems">Example problems</a><ul>
@@ -106,7 +111,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
 
         </div>
@@ -122,8 +127,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Shallow water solver</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Shallow water solver</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/swe_basics.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -133,32 +138,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="shallow-water-solver">
-<h1>Shallow water solver<a class="headerlink" href="#shallow-water-solver" title="Permalink to this heading">¶</a></h1>
+  <section id="shallow-water-solver">
+<h1>Shallow water solver<a class="headerlink" href="#shallow-water-solver" title="Permalink to this heading"></a></h1>
 <p>The (augmented) shallow water equations take the form:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\frac{\partial h}{\partial t} + \nabla \cdot (h U) &amp;= 0 \\
@@ -236,7 +217,7 @@ passive scalar.</p>
 </tr>
 <tr class="row-odd"><td><p>cvisc</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0.1</span></code></p></td>
-<td><p>artifical viscosity coefficient</p></td>
+<td><p>artificial viscosity coefficient</p></td>
 </tr>
 <tr class="row-even"><td><p>limiter</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
@@ -255,14 +236,14 @@ passive scalar.</p>
 </li>
 </ul>
 <section id="example-problems">
-<h2>Example problems<a class="headerlink" href="#example-problems" title="Permalink to this heading">¶</a></h2>
+<h2>Example problems<a class="headerlink" href="#example-problems" title="Permalink to this heading"></a></h2>
 <section id="dam">
-<h3>dam<a class="headerlink" href="#dam" title="Permalink to this heading">¶</a></h3>
-<p>The dam break problem is a standard hydrodynamics problem, analagous to the Sod
+<h3>dam<a class="headerlink" href="#dam" title="Permalink to this heading"></a></h3>
+<p>The dam break problem is a standard hydrodynamics problem, analogous to the Sod
 shock tube problem in compressible hydrodynamics. It considers a one-multidimensional
 problem of two regions of fluid at different heights, initially separated by a dam.
 The problem then models the evolution of the system when this dam is removed.
-As for the Sod problem, there exists an exact solution for the dam break probem,
+As for the Sod problem, there exists an exact solution for the dam break problem,
 so we can check our solution against the exact solutions. See Toro’s shallow water
 equations book for details on this problem and the exact Riemann solver.</p>
 <p>Because it is one-dimensional, we run it in narrow domains in the x- or
@@ -271,14 +252,13 @@ y-directions. It can be run as:</p>
 span.prompt1:before {
   content: "$ ";
 }
-</style><span class="prompt1">./pyro_sim.py swe dam inputs.dam.x</span>
-<span class="prompt1">./pyro_sim.py swe dam inputs.dam.y</span>
-</pre></div></div><p>A simple script, <code class="docutils literal notranslate"><span class="pre">dam_compare.py</span></code> in <code class="docutils literal notranslate"><span class="pre">analysis/</span></code> will read a pyro output
-file and plot the solution over the exact dam break solution (as given by
-<a class="reference external" href="https://doi.org/10.1063/1.3062689">Stoker (1958)</a> and
-<a class="reference external" href="https://doi.org/10.1061/(ASCE)0733-9429(1999)125:11(1210)">Wu, Huang &amp; Zheng (1999)</a>). Below we see
-the result for a dam break run with 128 points in the x-direction, and run
-until t = 0.3 s.</p>
+</style><span class="prompt1">pyro_sim.py<span class="w"> </span>swe<span class="w"> </span>dam<span class="w"> </span>inputs.dam.x</span>
+<span class="prompt1">pyro_sim.py<span class="w"> </span>swe<span class="w"> </span>dam<span class="w"> </span>inputs.dam.y</span>
+</pre></div></div><p>A simple script, <code class="docutils literal notranslate"><span class="pre">dam_compare.py</span></code> in <code class="docutils literal notranslate"><span class="pre">analysis/</span></code> will read a pyro
+output file and plot the solution over the exact dam break solution
+(as given by <span id="id1">[<a class="reference internal" href="zreferences.html#id5" title="J. J. Stoker and R. Bruce Lindsay. Water waves. Physics Today, 11(8):28-30, 1958. URL: https://pubs.aip.org/physicstoday/article/11/8/28/927415/Water-Waves.">SL58</a>]</span> and <span id="id2">[<a class="reference internal" href="zreferences.html#id6" title="Chao Wu, Guofu Huang, and Yonghong Zheng. Theoretical solution of dam-break shock wave. Journal of Hydraulic Engineering, 125(11):1210-1215, 1999.">WHZ99</a>]</span>).  Below we see
+the result for a dam break run with 128 points in the x-direction, and
+run until t = 0.3 s.</p>
 <img alt="_images/dam_compare.png" class="align-center" src="_images/dam_compare.png" />
 <p>We see excellent agreement for all quantities. The shock wave is very
 steep, as expected. For this problem, the Roe-fix solver performs
@@ -286,28 +266,28 @@ slightly better than the HLLC solver, with less smearing at the shock
 and head/tail of the rarefaction.</p>
 </section>
 <section id="quad">
-<h3>quad<a class="headerlink" href="#quad" title="Permalink to this heading">¶</a></h3>
+<h3>quad<a class="headerlink" href="#quad" title="Permalink to this heading"></a></h3>
 <p>The quad problem sets up different states in four regions of the
 domain and watches the complex interfaces that develop as shocks
 interact. This problem has appeared in several places (and a <a class="reference external" href="http://planets.utsc.utoronto.ca/~pawel/Riemann.hydro.html">detailed
 investigation</a> is
 online by Pawel Artymowicz). It is run as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">./pyro_sim.py swe quad inputs.quad</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">pyro_sim.py<span class="w"> </span>swe<span class="w"> </span>quad<span class="w"> </span>inputs.quad</span>
 </pre></div></div></section>
 <section id="kh">
-<h3>kh<a class="headerlink" href="#kh" title="Permalink to this heading">¶</a></h3>
+<h3>kh<a class="headerlink" href="#kh" title="Permalink to this heading"></a></h3>
 <p>The Kelvin-Helmholtz problem models three layers of fluid: two at the top and
 bottom of the domain travelling in one direction, one in the central part of the
 domain travelling in the opposite direction. At the interface of the layers,
 shearing produces the characteristic Kelvin-Helmholtz instabilities, just as
 is seen in the standard compressible problem. It is run as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">./pyro_sim.py swe kh inputs.kh</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">pyro_sim.py<span class="w"> </span>swe<span class="w"> </span>kh<span class="w"> </span>inputs.kh</span>
 </pre></div></div></section>
 </section>
 <section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading"></a></h2>
 <section id="explorations">
-<h3>Explorations<a class="headerlink" href="#explorations" title="Permalink to this heading">¶</a></h3>
+<h3>Explorations<a class="headerlink" href="#explorations" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>There are multiple Riemann solvers in the swe
 algorithm. Run the same problem with the different Riemann solvers
@@ -317,7 +297,7 @@ understand what is happening.</p></li>
 </ul>
 </section>
 <section id="extensions">
-<h3>Extensions<a class="headerlink" href="#extensions" title="Permalink to this heading">¶</a></h3>
+<h3>Extensions<a class="headerlink" href="#extensions" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Limit on the characteristic variables instead of the primitive
 variables. What changes do you see? (the notes show how to implement
@@ -339,7 +319,7 @@ this change.)</p></li>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, pyro development team.</p>
+    <p>&#169; Copyright 2023, pyro development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

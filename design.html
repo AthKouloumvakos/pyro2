@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Design ideas &mdash; pyro 3.1.post105+g7552cee documentation</title>
+  <title>Design ideas &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -35,15 +35,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> pyro
-            <img src="_static/logo.gif" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pyro
+              <img src="_static/logo.gif" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 3.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -72,12 +76,13 @@
 <p class="caption" role="heading"><span class="caption-text">Solvers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="advection_basics.html">Advection solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers_basics.html">Burgers’ Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_basics.html">Compressible hydrodynamics solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_compare.html">Compressible solver comparisons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid_basics.html">Multigrid solvers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid-examples.html">Multigrid examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multigrid.html">Multigrid Solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="diffusion_basics.html">Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="incompressible_basics.html">Incompressible hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompressible_viscous_basics.html">Incompressible viscous hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowmach_basics.html">Low Mach number hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swe_basics.html">Shallow water solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="particles_basics.html">Particles</a></li>
@@ -99,7 +104,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
 
         </div>
@@ -115,8 +120,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Design ideas</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Design ideas</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/design.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -126,32 +131,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="design-ideas">
-<h1>Design ideas<a class="headerlink" href="#design-ideas" title="Permalink to this heading">¶</a></h1>
+  <section id="design-ideas">
+<h1>Design ideas<a class="headerlink" href="#design-ideas" title="Permalink to this heading"></a></h1>
 <p>pyro is written entirely in python (by default, we expect python 3),
 with a few low-level routines compiled <em>just-in-time</em> by <cite>numba</cite> for performance. The
 <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package is used for representing arrays throughout the
@@ -163,7 +144,7 @@ between complexity and speed.</p>
 <p>A paper describing the design philosophy of pyro was accepted to
 Astronomy &amp; Computing <a class="reference external" href="http://adsabs.harvard.edu/abs/2013arXiv1306.6883Z">[paper link]</a>.</p>
 <section id="directory-structure">
-<h2>Directory structure<a class="headerlink" href="#directory-structure" title="Permalink to this heading">¶</a></h2>
+<h2>Directory structure<a class="headerlink" href="#directory-structure" title="Permalink to this heading"></a></h2>
 <p>pyro follows a standard python package structure.  The main directory
 (called <code class="docutils literal notranslate"><span class="pre">pyro2/</span></code> for historical reasons) contains:</p>
 <ul class="simple">
@@ -176,7 +157,7 @@ Astronomy &amp; Computing <a class="reference external" href="http://adsabs.harv
 </ul>
 <p>It is at this level (<code class="docutils literal notranslate"><span class="pre">pyro2/</span></code>) that the installation of pyro is done (via <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>).</p>
 <section id="pyro">
-<h3><code class="docutils literal notranslate"><span class="pre">pyro/</span></code><a class="headerlink" href="#pyro" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">pyro/</span></code><a class="headerlink" href="#pyro" title="Permalink to this heading"></a></h3>
 <p>The main code is all contained in the <code class="docutils literal notranslate"><span class="pre">pyro/</span></code> subdirectory.  Here we discuss that.</p>
 <p>The files for each solver are in their own sub-directory, with
 additional sub-directories for the mesh and utilities. Each solver has
@@ -294,7 +275,7 @@ modes.</p></li>
 </section>
 </section>
 <section id="numba">
-<h2>Numba<a class="headerlink" href="#numba" title="Permalink to this heading">¶</a></h2>
+<h2>Numba<a class="headerlink" href="#numba" title="Permalink to this heading"></a></h2>
 <p>Numba is used to speed up some critical portions of the code. Numba is
 a <em>just-in-time compiler</em> for python. When a call is first made to a
 function decorated with Numba’s <code class="docutils literal notranslate"><span class="pre">&#64;njit</span></code> decorator, it is compiled to
@@ -307,7 +288,7 @@ compiling the code again, saving some compilation time at the start of the
 simulation.</p>
 </section>
 <section id="main-driver">
-<h2>Main driver<a class="headerlink" href="#main-driver" title="Permalink to this heading">¶</a></h2>
+<h2>Main driver<a class="headerlink" href="#main-driver" title="Permalink to this heading"></a></h2>
 <p>All the solvers use the same driver, the main <code class="docutils literal notranslate"><span class="pre">pyro_sim.py</span></code> script,
 contained in <code class="docutils literal notranslate"><span class="pre">pyro2/pyro/</span></code>. The flowchart for the driver is:</p>
 <ul class="simple">
@@ -365,7 +346,7 @@ timestepping parameters in the driver</p></li>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, pyro development team.</p>
+    <p>&#169; Copyright 2023, pyro development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

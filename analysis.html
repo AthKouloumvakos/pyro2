@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Analysis routines &mdash; pyro 3.1.post105+g7552cee documentation</title>
+  <title>Analysis routines &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -35,15 +35,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> pyro
-            <img src="_static/logo.gif" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pyro
+              <img src="_static/logo.gif" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 3.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -64,12 +68,13 @@
 <p class="caption" role="heading"><span class="caption-text">Solvers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="advection_basics.html">Advection solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers_basics.html">Burgers’ Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_basics.html">Compressible hydrodynamics solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_compare.html">Compressible solver comparisons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid_basics.html">Multigrid solvers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid-examples.html">Multigrid examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multigrid.html">Multigrid Solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="diffusion_basics.html">Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="incompressible_basics.html">Incompressible hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompressible_viscous_basics.html">Incompressible viscous hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowmach_basics.html">Low Mach number hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swe_basics.html">Shallow water solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="particles_basics.html">Particles</a></li>
@@ -91,7 +96,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
 
         </div>
@@ -107,8 +112,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Analysis routines</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Analysis routines</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/analysis.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -118,32 +123,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="analysis-routines">
-<span id="analysis"></span><h1>Analysis routines<a class="headerlink" href="#analysis-routines" title="Permalink to this heading">¶</a></h1>
+  <section id="analysis-routines">
+<span id="analysis"></span><h1>Analysis routines<a class="headerlink" href="#analysis-routines" title="Permalink to this heading"></a></h1>
 <p>In addition to the main pyro program, there are many analysis tools
 that we describe here. Note: some problems write a report at the end
 of the simulation specifying the analysis routines that can be used
@@ -162,9 +143,30 @@ attributes stored in the HDF5 file.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">analysis/</span></code></p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">convergence.py</span></code>: this compares two files with different
-resolutions (one a factor of 2 finer than the other).  It coarsens
-the finer data and then computes the norm of the difference.  This
-is used to test the convergence of solvers.</p></li>
+resolutions (one a factor of N-times, (default is 2 times or <code class="docutils literal notranslate"><span class="pre">N=2</span></code>) finer
+than the other). It coarsens the finer data and then computes the
+norm of the difference.  The default variable being compared is
+density, but a different variable can be selected with the
+<code class="docutils literal notranslate"><span class="pre">var_name</span></code> argument.
+This is used to test the convergence of solvers.</p>
+<p>usage: <code class="docutils literal notranslate"><span class="pre">./convergence.py</span> <span class="pre">fine_file</span> <span class="pre">coarse_file</span> <span class="pre">var_name</span> <span class="pre">N</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">convergence_plot.py</span></code>: this compares 3 or more files with different
+resolutions (factor of N-times (default is 2 times) finer than the
+others) by using <code class="docutils literal notranslate"><span class="pre">convergence.py</span></code>. It prints out a table that summarizes
+the L-2 Norm of all the variables by coarsening the finer data and comparing
+it to the coarse data, as well as the order of convergence between the
+L-2 Norms. It also produces a plot in the end to compare the theoretical
+order of convergence to the actual order of convergence from the datasets.
+The data files should enter from the finest file to the coarsest file. There
+should be at least 3 files, <code class="docutils literal notranslate"><span class="pre">fine_file</span> <span class="pre">med_file</span> <span class="pre">coarse_file</span></code>.
+The output file name for the convergence plot, <code class="docutils literal notranslate"><span class="pre">out</span> <span class="pre">=</span> <span class="pre">convergence_plot.pdf</span></code>,
+by default. The theoretical order of convergence for the solver, <code class="docutils literal notranslate"><span class="pre">order=2</span></code>,
+by default. The multiplicative factor between each data files are, <code class="docutils literal notranslate"><span class="pre">resolution=2</span></code>,
+by default. This is used to test the order of the convergence of the solver
+when there is no analytical solutions.</p>
+<p>usage: <code class="docutils literal notranslate"><span class="pre">./convergence_plot.py</span> <span class="pre">files*</span> <span class="pre">-o</span> <span class="pre">out</span> <span class="pre">-n</span> <span class="pre">order</span> <span class="pre">-r</span> <span class="pre">resolution</span></code></p>
+</li>
 <li><p><code class="docutils literal notranslate"><span class="pre">dam_compare.py</span></code>: this takes an output file from the
 shallow water dam break problem and plots a slice through the domain
 together with the analytic solution (calculated in the script).</p>
@@ -195,7 +197,7 @@ from <code class="docutils literal notranslate"><span class="pre">cylindrical-se
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">smooth_error.py</span></code>: this takes an output file from the advection
 solver’s smooth problem and compares to the analytic solution,
-outputing the L2 norm of the error.</p>
+outputting the L2 norm of the error.</p>
 <p>usage: <code class="docutils literal notranslate"><span class="pre">./smooth_error.py</span> <span class="pre">file</span></code></p>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sod_compare.py</span></code>: this takes an output file from the
@@ -219,7 +221,7 @@ the analytic solution (read in from <code class="docutils literal notranslate"><
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, pyro development team.</p>
+    <p>&#169; Copyright 2023, pyro development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

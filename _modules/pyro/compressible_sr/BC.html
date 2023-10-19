@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pyro.compressible_sr.BC &mdash; pyro 3.1.post105+g7552cee documentation</title>
+  <title>pyro.compressible_sr.BC &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -32,15 +32,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> pyro
-            <img src="../../../_static/logo.gif" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            pyro
+              <img src="../../../_static/logo.gif" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 3.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -61,12 +65,13 @@
 <p class="caption" role="heading"><span class="caption-text">Solvers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../advection_basics.html">Advection solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../burgers_basics.html">Burgers’ Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compressible_basics.html">Compressible hydrodynamics solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compressible_compare.html">Compressible solver comparisons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../multigrid_basics.html">Multigrid solvers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../multigrid-examples.html">Multigrid examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../multigrid.html">Multigrid Solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../diffusion_basics.html">Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../incompressible_basics.html">Incompressible hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../incompressible_viscous_basics.html">Incompressible viscous hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../lowmach_basics.html">Low Mach number hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../swe_basics.html">Shallow water solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../particles_basics.html">Particles</a></li>
@@ -88,7 +93,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zreferences.html">References</a></li>
 </ul>
 
         </div>
@@ -104,9 +109,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-      <li>pyro.compressible_sr.BC</li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pyro.compressible_sr.BC</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -132,13 +137,13 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">import</span> <span class="nn">pyro.compressible_sr.eos</span> <span class="k">as</span> <span class="nn">eos</span>
 <span class="kn">import</span> <span class="nn">pyro.compressible_sr.unsplit_fluxes</span> <span class="k">as</span> <span class="nn">flx</span>
+<span class="kn">from</span> <span class="nn">pyro.compressible_sr</span> <span class="kn">import</span> <span class="n">eos</span>
 <span class="kn">from</span> <span class="nn">pyro.util</span> <span class="kn">import</span> <span class="n">msg</span>
 
 
 <div class="viewcode-block" id="user"><a class="viewcode-back" href="../../../pyro.compressible_sr.html#pyro.compressible_sr.BC.user">[docs]</a><span class="k">def</span> <span class="nf">user</span><span class="p">(</span><span class="n">bc_name</span><span class="p">,</span> <span class="n">bc_edge</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ccdata</span><span class="p">,</span> <span class="n">ivars</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A hydrostatic boundary.  This integrates the equation of HSE into</span>
 <span class="sd">    the ghost cells to get the pressure and density under the assumption</span>
 <span class="sd">    that the specific internal energy is constant.</span>
@@ -160,6 +165,7 @@
 <span class="sd">        The data object</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># pylint: disable=too-many-nested-blocks</span>
 
     <span class="n">myg</span> <span class="o">=</span> <span class="n">ccdata</span><span class="o">.</span><span class="n">grid</span>
 
@@ -397,7 +403,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, pyro development team.</p>
+    <p>&#169; Copyright 2023, pyro development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

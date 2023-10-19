@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Testing &mdash; pyro 3.1.post105+g7552cee documentation</title>
+  <title>Testing &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -35,15 +35,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> pyro
-            <img src="_static/logo.gif" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pyro
+              <img src="_static/logo.gif" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 3.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -64,12 +68,13 @@
 <p class="caption" role="heading"><span class="caption-text">Solvers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="advection_basics.html">Advection solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers_basics.html">Burgers’ Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_basics.html">Compressible hydrodynamics solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_compare.html">Compressible solver comparisons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid_basics.html">Multigrid solvers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid-examples.html">Multigrid examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multigrid.html">Multigrid Solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="diffusion_basics.html">Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="incompressible_basics.html">Incompressible hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompressible_viscous_basics.html">Incompressible viscous hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowmach_basics.html">Low Mach number hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swe_basics.html">Shallow water solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="particles_basics.html">Particles</a></li>
@@ -95,7 +100,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
 
         </div>
@@ -111,8 +116,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Testing</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Testing</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/testing.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -122,55 +127,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="testing">
-<h1>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">¶</a></h1>
+  <section id="testing">
+<h1>Testing<a class="headerlink" href="#testing" title="Permalink to this heading"></a></h1>
 <p>There are two types of testing implemented in pyro: unit tests and
 regression tests.  Both of these are driven by the <code class="docutils literal notranslate"><span class="pre">test.py</span></code>
 script in the root directory.</p>
 <section id="unit-tests">
-<h2>Unit tests<a class="headerlink" href="#unit-tests" title="Permalink to this heading">¶</a></h2>
-<p>pyro implements unit tests using <code class="docutils literal notranslate"><span class="pre">py.test</span></code>.  These can be run via:</p>
+<h2>Unit tests<a class="headerlink" href="#unit-tests" title="Permalink to this heading"></a></h2>
+<p>pyro implements unit tests using <code class="docutils literal notranslate"><span class="pre">pytest</span></code>.  These can be run via:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
 span.prompt1:before {
   content: "$ ";
 }
-</style><span class="prompt1">./test.py -u</span>
+</style><span class="prompt1">pytest<span class="w"> </span>-v<span class="w"> </span>--nbval<span class="w"> </span>pyro</span>
 </pre></div></div></section>
 <section id="regression-tests">
-<h2>Regression tests<a class="headerlink" href="#regression-tests" title="Permalink to this heading">¶</a></h2>
+<h2>Regression tests<a class="headerlink" href="#regression-tests" title="Permalink to this heading"></a></h2>
 <p>The main driver, <code class="docutils literal notranslate"><span class="pre">pyro_sim.py</span></code> has the ability to create benchmarks and
 compare output to stored benchmarks at the end of a simulation.
 Benchmark output is stored in each solver’s <code class="docutils literal notranslate"><span class="pre">tests/</span></code> directory.
 When testing, we compare zone-by-zone for each variable to see if we
 agree exactly.  If there is any disagreement, this means that we’ve
-made a change to the code that we need to understand (if may be a bug
+made a change to the code that we need to understand (it may be a bug
 or may be a fix or optimization).</p>
 <p>We can compare to the stored benchmarks simply by running:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">./test.py</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">./pyro/test.py</span>
 </pre></div></div><div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When running on a new machine, it is possible that roundoff-level differences
@@ -192,7 +173,7 @@ future tests.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, pyro development team.</p>
+    <p>&#169; Copyright 2023, pyro development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

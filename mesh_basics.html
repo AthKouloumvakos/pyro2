@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mesh overview &mdash; pyro 3.1.post105+g7552cee documentation</title>
+  <title>Mesh overview &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -37,15 +37,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> pyro
-            <img src="_static/logo.gif" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pyro
+              <img src="_static/logo.gif" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 3.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -71,12 +75,13 @@
 <p class="caption" role="heading"><span class="caption-text">Solvers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="advection_basics.html">Advection solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers_basics.html">Burgers’ Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_basics.html">Compressible hydrodynamics solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_compare.html">Compressible solver comparisons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid_basics.html">Multigrid solvers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid-examples.html">Multigrid examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multigrid.html">Multigrid Solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="diffusion_basics.html">Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="incompressible_basics.html">Incompressible hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompressible_viscous_basics.html">Incompressible viscous hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowmach_basics.html">Low Mach number hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swe_basics.html">Shallow water solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="particles_basics.html">Particles</a></li>
@@ -98,7 +103,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
 
         </div>
@@ -114,8 +119,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Mesh overview</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Mesh overview</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/mesh_basics.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -125,32 +130,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="mesh-overview">
-<h1>Mesh overview<a class="headerlink" href="#mesh-overview" title="Permalink to this heading">¶</a></h1>
+  <section id="mesh-overview">
+<h1>Mesh overview<a class="headerlink" href="#mesh-overview" title="Permalink to this heading"></a></h1>
 <p>All solvers are based on a finite-volume/cell-centered
 discretization. The basic theory of such methods is discussed in
 <a class="reference internal" href="notes.html#notes"><span class="std std-ref">Notes on the numerical methods</span></a>.</p>
@@ -164,7 +145,7 @@ higher-order methods, the <a class="reference internal" href="pyro.mesh.html#pyr
 methods for converting between the two data centerings.</p>
 </div>
 <section id="mesh-patch-implementation-and-use">
-<h2><a class="reference internal" href="pyro.mesh.html#module-pyro.mesh.patch" title="pyro.mesh.patch"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mesh.patch</span></code></a> implementation and use<a class="headerlink" href="#mesh-patch-implementation-and-use" title="Permalink to this heading">¶</a></h2>
+<h2><a class="reference internal" href="pyro.mesh.html#module-pyro.mesh.patch" title="pyro.mesh.patch"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mesh.patch</span></code></a> implementation and use<a class="headerlink" href="#mesh-patch-implementation-and-use" title="Permalink to this heading"></a></h2>
 <p>We import the basic mesh functionality as:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyro.mesh.patch</span> <span class="k">as</span> <span class="nn">patch</span>
 <span class="kn">import</span> <span class="nn">pyro.mesh.fv</span> <span class="k">as</span> <span class="nn">fv</span>
@@ -232,14 +213,14 @@ different actions for each variable (for example, some may do even
 reflection while others may do odd reflection).</p>
 </section>
 <section id="jupyter-notebook">
-<h2>Jupyter notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this heading">¶</a></h2>
+<h2>Jupyter notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this heading"></a></h2>
 <p>A Jupyter notebook that illustrates some of the basics of working with
-the grid is provided as <a class="reference external" href="https://github.com/python-hydro/pyro2/blob/main/mesh/mesh-examples.ipynb">mesh-examples.ipynb</a>. This will
+the grid is provided as <a class="reference external" href="https://github.com/python-hydro/pyro2/blob/main/pyro/mesh/mesh-examples.ipynb">mesh-examples.ipynb</a>. This will
 demonstrate, for example, how to use the <a class="reference internal" href="pyro.mesh.html#pyro.mesh.array_indexer.ArrayIndexer" title="pyro.mesh.array_indexer.ArrayIndexer"><code class="xref py py-func docutils literal notranslate"><span class="pre">ArrayIndexer</span></code></a> methods to
 construct differences.</p>
 </section>
 <section id="tests">
-<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this heading">¶</a></h2>
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this heading"></a></h2>
 <p>The actual filling of the boundary conditions is done by the <a class="reference internal" href="pyro.mesh.html#pyro.mesh.patch.CellCenterData2d.fill_BC" title="pyro.mesh.patch.CellCenterData2d.fill_BC"><code class="xref py py-func docutils literal notranslate"><span class="pre">fill_BC</span></code></a>
 method. The script <code class="docutils literal notranslate"><span class="pre">bc_demo.py</span></code> tests the various types of boundary
 conditions by initializing a small grid with sequential data, filling
@@ -258,7 +239,7 @@ the BCs, and printing out the results.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, pyro development team.</p>
+    <p>&#169; Copyright 2023, pyro development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

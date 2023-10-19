@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; pyro 3.1.post105+g7552cee documentation</title>
+  <title>Index &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -32,15 +32,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> pyro
-            <img src="_static/logo.gif" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pyro
+              <img src="_static/logo.gif" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 3.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -61,12 +65,13 @@
 <p class="caption" role="heading"><span class="caption-text">Solvers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="advection_basics.html">Advection solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers_basics.html">Burgers’ Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_basics.html">Compressible hydrodynamics solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_compare.html">Compressible solver comparisons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid_basics.html">Multigrid solvers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid-examples.html">Multigrid examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multigrid.html">Multigrid Solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="diffusion_basics.html">Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="incompressible_basics.html">Incompressible hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompressible_viscous_basics.html">Incompressible viscous hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowmach_basics.html">Low Mach number hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swe_basics.html">Shallow water solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="particles_basics.html">Particles</a></li>
@@ -88,7 +93,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
 
         </div>
@@ -104,8 +109,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Index</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Index</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -131,6 +136,7 @@
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
@@ -152,10 +158,18 @@
       </ul></li>
       <li><a href="pyro.mesh.html#pyro.mesh.patch.CellCenterData2d.add_ivars">add_ivars() (pyro.mesh.patch.CellCenterData2d method)</a>
 </li>
-      <li><a href="pyro.particles.html#pyro.particles.particles.Particles.array_generate_particles">array_generate_particles() (pyro.particles.particles.Particles method)</a>
+      <li><a href="pyro.viscous_burgers.html#pyro.viscous_burgers.interface.apply_diffusion_corrections">apply_diffusion_corrections() (in module pyro.viscous_burgers.interface)</a>
+</li>
+      <li><a href="pyro.incompressible.html#pyro.incompressible.incomp_interface.apply_gradp_corrections">apply_gradp_corrections() (in module pyro.incompressible.incomp_interface)</a>
+</li>
+      <li><a href="pyro.incompressible.html#pyro.incompressible.incomp_interface.apply_other_source_terms">apply_other_source_terms() (in module pyro.incompressible.incomp_interface)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyro.burgers.html#pyro.burgers.burgers_interface.apply_transverse_corrections">apply_transverse_corrections() (in module pyro.burgers.burgers_interface)</a>
+</li>
+      <li><a href="pyro.particles.html#pyro.particles.particles.Particles.array_generate_particles">array_generate_particles() (pyro.particles.particles.Particles method)</a>
+</li>
       <li><a href="pyro.mesh.html#pyro.mesh.array_indexer.ArrayIndexer">ArrayIndexer (class in pyro.mesh.array_indexer)</a>
 </li>
       <li><a href="pyro.mesh.html#pyro.mesh.array_indexer.ArrayIndexerFC">ArrayIndexerFC (class in pyro.mesh.array_indexer)</a>
@@ -166,6 +180,8 @@
         <li><a href="pyro.compressible_sr.html#pyro.compressible_sr.interface.artificial_viscosity">(in module pyro.compressible_sr.interface)</a>
 </li>
       </ul></li>
+      <li><a href="pyro.html#pyro.test.avoid_interleaved_output">avoid_interleaved_output() (in module pyro.test)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -236,6 +252,8 @@
         <li><a href="pyro.swe.html#pyro.swe.interface.consFlux">(in module pyro.swe.interface)</a>
 </li>
       </ul></li>
+      <li><a href="pyro.burgers.html#pyro.burgers.burgers_interface.construct_unsplit_fluxes">construct_unsplit_fluxes() (in module pyro.burgers.burgers_interface)</a>
+</li>
       <li><a href="pyro.mesh.html#pyro.mesh.array_indexer.ArrayIndexer.copy">copy() (pyro.mesh.array_indexer.ArrayIndexer method)</a>
 
       <ul>
@@ -256,6 +274,12 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pyro.mesh.html#pyro.mesh.boundary.define_bc">define_bc() (in module pyro.mesh.boundary)</a>
 </li>
+      <li><a href="pyro.incompressible.html#pyro.incompressible.simulation.Simulation.define_other_bc">define_other_bc() (pyro.incompressible.simulation.Simulation method)</a>
+
+      <ul>
+        <li><a href="pyro.incompressible_viscous.html#pyro.incompressible_viscous.simulation.Simulation.define_other_bc">(pyro.incompressible_viscous.simulation.Simulation method)</a>
+</li>
+      </ul></li>
       <li><a href="pyro.compressible.html#pyro.compressible.eos.dens">dens() (in module pyro.compressible.eos)</a>
 
       <ul>
@@ -270,20 +294,32 @@
         <li><a href="pyro.swe.html#pyro.swe.derives.derive_primitives">(in module pyro.swe.derives)</a>
 </li>
       </ul></li>
-      <li><a href="pyro.compressible_react.html#pyro.compressible_react.simulation.Simulation.diffuse">diffuse() (pyro.compressible_react.simulation.Simulation method)</a>
+      <li><a href="pyro.viscous_burgers.html#pyro.viscous_burgers.interface.diffuse">diffuse() (in module pyro.viscous_burgers.interface)</a>
+
+      <ul>
+        <li><a href="pyro.compressible_react.html#pyro.compressible_react.simulation.Simulation.diffuse">(pyro.compressible_react.simulation.Simulation method)</a>
 </li>
+      </ul></li>
       <li><a href="pyro.mesh.html#pyro.mesh.patch.do_demo">do_demo() (in module pyro.mesh.patch)</a>
 </li>
+      <li><a href="pyro.incompressible.html#pyro.incompressible.simulation.Simulation.do_other_update_velocity">do_other_update_velocity() (pyro.incompressible.simulation.Simulation method)</a>
+
+      <ul>
+        <li><a href="pyro.incompressible_viscous.html#pyro.incompressible_viscous.simulation.Simulation.do_other_update_velocity">(pyro.incompressible_viscous.simulation.Simulation method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pyro.html#pyro.simulation_null.NullSimulation.do_output">do_output() (pyro.simulation_null.NullSimulation method)</a>
 </li>
       <li><a href="pyro.html#pyro.test.do_tests">do_tests() (in module pyro.test)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pyro.advection.html#pyro.advection.simulation.Simulation.dovis">dovis() (pyro.advection.simulation.Simulation method)</a>
 
       <ul>
         <li><a href="pyro.advection_nonuniform.html#pyro.advection_nonuniform.simulation.Simulation.dovis">(pyro.advection_nonuniform.simulation.Simulation method)</a>
+</li>
+        <li><a href="pyro.burgers.html#pyro.burgers.simulation.Simulation.dovis">(pyro.burgers.simulation.Simulation method)</a>
 </li>
         <li><a href="pyro.compressible.html#pyro.compressible.simulation.Simulation.dovis">(pyro.compressible.simulation.Simulation method)</a>
 </li>
@@ -323,6 +359,8 @@
 </li>
         <li><a href="pyro.advection_weno.html#pyro.advection_weno.simulation.Simulation.evolve">(pyro.advection_weno.simulation.Simulation method)</a>
 </li>
+        <li><a href="pyro.burgers.html#pyro.burgers.simulation.Simulation.evolve">(pyro.burgers.simulation.Simulation method)</a>
+</li>
         <li><a href="pyro.compressible.html#pyro.compressible.simulation.Simulation.evolve">(pyro.compressible.simulation.Simulation method)</a>
 </li>
         <li><a href="pyro.compressible_fv4.html#pyro.compressible_fv4.simulation.Simulation.evolve">(pyro.compressible_fv4.simulation.Simulation method)</a>
@@ -339,11 +377,15 @@
 </li>
         <li><a href="pyro.incompressible.html#pyro.incompressible.simulation.Simulation.evolve">(pyro.incompressible.simulation.Simulation method)</a>
 </li>
+        <li><a href="pyro.incompressible_viscous.html#pyro.incompressible_viscous.simulation.Simulation.evolve">(pyro.incompressible_viscous.simulation.Simulation method)</a>
+</li>
         <li><a href="pyro.lm_atm.html#pyro.lm_atm.simulation.Simulation.evolve">(pyro.lm_atm.simulation.Simulation method)</a>
 </li>
         <li><a href="pyro.html#pyro.simulation_null.NullSimulation.evolve">(pyro.simulation_null.NullSimulation method)</a>
 </li>
         <li><a href="pyro.swe.html#pyro.swe.simulation.Simulation.evolve">(pyro.swe.simulation.Simulation method)</a>
+</li>
+        <li><a href="pyro.viscous_burgers.html#pyro.viscous_burgers.simulation.Simulation.evolve">(pyro.viscous_burgers.simulation.Simulation method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -396,6 +438,12 @@
         <li><a href="pyro.advection_weno.problems.html#pyro.advection_weno.problems.test.finalize">(in module pyro.advection_weno.problems.test)</a>
 </li>
         <li><a href="pyro.advection_weno.problems.html#pyro.advection_weno.problems.tophat.finalize">(in module pyro.advection_weno.problems.tophat)</a>
+</li>
+        <li><a href="pyro.burgers.problems.html#pyro.burgers.problems.converge.finalize">(in module pyro.burgers.problems.converge)</a>
+</li>
+        <li><a href="pyro.burgers.problems.html#pyro.burgers.problems.test.finalize">(in module pyro.burgers.problems.test)</a>
+</li>
+        <li><a href="pyro.burgers.problems.html#pyro.burgers.problems.tophat.finalize">(in module pyro.burgers.problems.tophat)</a>
 </li>
         <li><a href="pyro.compressible.problems.html#pyro.compressible.problems.acoustic_pulse.finalize">(in module pyro.compressible.problems.acoustic_pulse)</a>
 </li>
@@ -547,6 +595,12 @@
 </li>
         <li><a href="pyro.incompressible.problems.html#pyro.incompressible.problems.shear.finalize">(in module pyro.incompressible.problems.shear)</a>
 </li>
+        <li><a href="pyro.incompressible_viscous.problems.html#pyro.incompressible_viscous.problems.cavity.finalize">(in module pyro.incompressible_viscous.problems.cavity)</a>
+</li>
+        <li><a href="pyro.incompressible_viscous.problems.html#pyro.incompressible_viscous.problems.converge.finalize">(in module pyro.incompressible_viscous.problems.converge)</a>
+</li>
+        <li><a href="pyro.incompressible_viscous.problems.html#pyro.incompressible_viscous.problems.shear.finalize">(in module pyro.incompressible_viscous.problems.shear)</a>
+</li>
         <li><a href="pyro.lm_atm.problems.html#pyro.lm_atm.problems.bubble.finalize">(in module pyro.lm_atm.problems.bubble)</a>
 </li>
         <li><a href="pyro.lm_atm.problems.html#pyro.lm_atm.problems.gresho.finalize">(in module pyro.lm_atm.problems.gresho)</a>
@@ -564,6 +618,10 @@
         <li><a href="pyro.swe.problems.html#pyro.swe.problems.quad.finalize">(in module pyro.swe.problems.quad)</a>
 </li>
         <li><a href="pyro.swe.problems.html#pyro.swe.problems.test.finalize">(in module pyro.swe.problems.test)</a>
+</li>
+        <li><a href="pyro.viscous_burgers.problems.html#pyro.viscous_burgers.problems.converge.finalize">(in module pyro.viscous_burgers.problems.converge)</a>
+</li>
+        <li><a href="pyro.viscous_burgers.problems.html#pyro.viscous_burgers.problems.tophat.finalize">(in module pyro.viscous_burgers.problems.tophat)</a>
 </li>
         <li><a href="pyro.html#pyro.simulation_null.NullSimulation.finalize">(pyro.simulation_null.NullSimulation method)</a>
 </li>
@@ -606,18 +664,24 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pyro.multigrid.html#pyro.multigrid.general_MG.GeneralMG2d">GeneralMG2d (class in pyro.multigrid.general_MG)</a>
 </li>
-      <li><a href="pyro.html#pyro.plot.get_args">get_args() (in module pyro.plot)</a>
+      <li><a href="pyro.incompressible_viscous.problems.html#pyro.incompressible_viscous.problems.plot_cavity.get_args">get_args() (in module pyro.incompressible_viscous.problems.plot_cavity)</a>
+
+      <ul>
+        <li><a href="pyro.html#pyro.plot.get_args">(in module pyro.plot)</a>
 </li>
+      </ul></li>
       <li><a href="pyro.mesh.html#pyro.mesh.patch.CellCenterData2d.get_aux">get_aux() (pyro.mesh.patch.CellCenterData2d method)</a>
 </li>
       <li><a href="pyro.particles.html#pyro.particles.particles.Particles.get_init_positions">get_init_positions() (pyro.particles.particles.Particles method)</a>
 </li>
-      <li><a href="pyro.incompressible.html#pyro.incompressible.incomp_interface.get_interface_states">get_interface_states() (in module pyro.incompressible.incomp_interface)</a>
+      <li><a href="pyro.burgers.html#pyro.burgers.burgers_interface.get_interface_states">get_interface_states() (in module pyro.burgers.burgers_interface)</a>
 
       <ul>
         <li><a href="pyro.lm_atm.html#pyro.lm_atm.LM_atm_interface.get_interface_states">(in module pyro.lm_atm.LM_atm_interface)</a>
 </li>
       </ul></li>
+      <li><a href="pyro.viscous_burgers.html#pyro.viscous_burgers.interface.get_lap">get_lap() (in module pyro.viscous_burgers.interface)</a>
+</li>
       <li><a href="pyro.util.html#pyro.util.runparams.RuntimeParameters.get_param">get_param() (pyro.util.runparams.RuntimeParameters method)</a>
 </li>
       <li><a href="pyro.particles.html#pyro.particles.particles.Particles.get_positions">get_positions() (pyro.particles.particles.Particles method)</a>
@@ -626,10 +690,10 @@
 </li>
       <li><a href="pyro.multigrid.html#pyro.multigrid.MG.CellCenterMG2d.get_solution_gradient">get_solution_gradient() (pyro.multigrid.MG.CellCenterMG2d method)</a>
 </li>
-      <li><a href="pyro.multigrid.html#pyro.multigrid.MG.CellCenterMG2d.get_solution_object">get_solution_object() (pyro.multigrid.MG.CellCenterMG2d method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyro.multigrid.html#pyro.multigrid.MG.CellCenterMG2d.get_solution_object">get_solution_object() (pyro.multigrid.MG.CellCenterMG2d method)</a>
+</li>
       <li><a href="pyro.mesh.html#pyro.mesh.integration.RKIntegrator.get_stage_start">get_stage_start() (pyro.mesh.integration.RKIntegrator method)</a>
 </li>
       <li><a href="pyro.mesh.html#pyro.mesh.patch.CellCenterData2d.get_var">get_var() (pyro.mesh.patch.CellCenterData2d method)</a>
@@ -708,6 +772,12 @@
         <li><a href="pyro.advection_weno.problems.html#pyro.advection_weno.problems.test.init_data">(in module pyro.advection_weno.problems.test)</a>
 </li>
         <li><a href="pyro.advection_weno.problems.html#pyro.advection_weno.problems.tophat.init_data">(in module pyro.advection_weno.problems.tophat)</a>
+</li>
+        <li><a href="pyro.burgers.problems.html#pyro.burgers.problems.converge.init_data">(in module pyro.burgers.problems.converge)</a>
+</li>
+        <li><a href="pyro.burgers.problems.html#pyro.burgers.problems.test.init_data">(in module pyro.burgers.problems.test)</a>
+</li>
+        <li><a href="pyro.burgers.problems.html#pyro.burgers.problems.tophat.init_data">(in module pyro.burgers.problems.tophat)</a>
 </li>
         <li><a href="pyro.compressible.problems.html#pyro.compressible.problems.acoustic_pulse.init_data">(in module pyro.compressible.problems.acoustic_pulse)</a>
 </li>
@@ -859,6 +929,12 @@
 </li>
         <li><a href="pyro.incompressible.problems.html#pyro.incompressible.problems.shear.init_data">(in module pyro.incompressible.problems.shear)</a>
 </li>
+        <li><a href="pyro.incompressible_viscous.problems.html#pyro.incompressible_viscous.problems.cavity.init_data">(in module pyro.incompressible_viscous.problems.cavity)</a>
+</li>
+        <li><a href="pyro.incompressible_viscous.problems.html#pyro.incompressible_viscous.problems.converge.init_data">(in module pyro.incompressible_viscous.problems.converge)</a>
+</li>
+        <li><a href="pyro.incompressible_viscous.problems.html#pyro.incompressible_viscous.problems.shear.init_data">(in module pyro.incompressible_viscous.problems.shear)</a>
+</li>
         <li><a href="pyro.lm_atm.problems.html#pyro.lm_atm.problems.bubble.init_data">(in module pyro.lm_atm.problems.bubble)</a>
 </li>
         <li><a href="pyro.lm_atm.problems.html#pyro.lm_atm.problems.gresho.init_data">(in module pyro.lm_atm.problems.gresho)</a>
@@ -877,6 +953,10 @@
 </li>
         <li><a href="pyro.swe.problems.html#pyro.swe.problems.test.init_data">(in module pyro.swe.problems.test)</a>
 </li>
+        <li><a href="pyro.viscous_burgers.problems.html#pyro.viscous_burgers.problems.converge.init_data">(in module pyro.viscous_burgers.problems.converge)</a>
+</li>
+        <li><a href="pyro.viscous_burgers.problems.html#pyro.viscous_burgers.problems.tophat.init_data">(in module pyro.viscous_burgers.problems.tophat)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -893,6 +973,8 @@
 </li>
         <li><a href="pyro.advection_nonuniform.html#pyro.advection_nonuniform.simulation.Simulation.initialize">(pyro.advection_nonuniform.simulation.Simulation method)</a>
 </li>
+        <li><a href="pyro.burgers.html#pyro.burgers.simulation.Simulation.initialize">(pyro.burgers.simulation.Simulation method)</a>
+</li>
         <li><a href="pyro.compressible.html#pyro.compressible.simulation.Simulation.initialize">(pyro.compressible.simulation.Simulation method)</a>
 </li>
         <li><a href="pyro.compressible_fv4.html#pyro.compressible_fv4.simulation.Simulation.initialize">(pyro.compressible_fv4.simulation.Simulation method)</a>
@@ -904,6 +986,8 @@
         <li><a href="pyro.diffusion.html#pyro.diffusion.simulation.Simulation.initialize">(pyro.diffusion.simulation.Simulation method)</a>
 </li>
         <li><a href="pyro.incompressible.html#pyro.incompressible.simulation.Simulation.initialize">(pyro.incompressible.simulation.Simulation method)</a>
+</li>
+        <li><a href="pyro.incompressible_viscous.html#pyro.incompressible_viscous.simulation.Simulation.initialize">(pyro.incompressible_viscous.simulation.Simulation method)</a>
 </li>
         <li><a href="pyro.lm_atm.html#pyro.lm_atm.simulation.Simulation.initialize">(pyro.lm_atm.simulation.Simulation method)</a>
 </li>
@@ -995,11 +1079,21 @@
 </li>
       </ul></li>
       <li><a href="pyro.html#pyro.pyro_sim.main">main() (in module pyro.pyro_sim)</a>
+
+      <ul>
+        <li><a href="pyro.html#pyro.test.main">(in module pyro.test)</a>
 </li>
+        <li><a href="pyro.util.html#pyro.util.compare.main">(in module pyro.util.compare)</a>
+</li>
+      </ul></li>
       <li><a href="pyro.lm_atm.html#pyro.lm_atm.simulation.Simulation.make_prime">make_prime() (pyro.lm_atm.simulation.Simulation method)</a>
 </li>
-      <li><a href="pyro.html#pyro.plot.makeplot">makeplot() (in module pyro.plot)</a>
+      <li><a href="pyro.incompressible_viscous.problems.html#pyro.incompressible_viscous.problems.plot_cavity.makeplot">makeplot() (in module pyro.incompressible_viscous.problems.plot_cavity)</a>
+
+      <ul>
+        <li><a href="pyro.html#pyro.plot.makeplot">(in module pyro.plot)</a>
 </li>
+      </ul></li>
       <li><a href="pyro.mesh.html#pyro.mesh.patch.CellCenterData2d.max">max() (pyro.mesh.patch.CellCenterData2d method)</a>
 </li>
       <li><a href="pyro.advection.html#pyro.advection.simulation.Simulation.method_compute_timestep">method_compute_timestep() (pyro.advection.simulation.Simulation method)</a>
@@ -1011,6 +1105,8 @@
 </li>
         <li><a href="pyro.advection_weno.html#pyro.advection_weno.simulation.Simulation.method_compute_timestep">(pyro.advection_weno.simulation.Simulation method)</a>
 </li>
+        <li><a href="pyro.burgers.html#pyro.burgers.simulation.Simulation.method_compute_timestep">(pyro.burgers.simulation.Simulation method)</a>
+</li>
         <li><a href="pyro.compressible.html#pyro.compressible.simulation.Simulation.method_compute_timestep">(pyro.compressible.simulation.Simulation method)</a>
 </li>
         <li><a href="pyro.compressible_rk.html#pyro.compressible_rk.simulation.Simulation.method_compute_timestep">(pyro.compressible_rk.simulation.Simulation method)</a>
@@ -1018,8 +1114,6 @@
         <li><a href="pyro.compressible_sr.html#pyro.compressible_sr.simulation.Simulation.method_compute_timestep">(pyro.compressible_sr.simulation.Simulation method)</a>
 </li>
         <li><a href="pyro.diffusion.html#pyro.diffusion.simulation.Simulation.method_compute_timestep">(pyro.diffusion.simulation.Simulation method)</a>
-</li>
-        <li><a href="pyro.incompressible.html#pyro.incompressible.simulation.Simulation.method_compute_timestep">(pyro.incompressible.simulation.Simulation method)</a>
 </li>
         <li><a href="pyro.lm_atm.html#pyro.lm_atm.simulation.Simulation.method_compute_timestep">(pyro.lm_atm.simulation.Simulation method)</a>
 </li>
@@ -1101,6 +1195,20 @@
         <li><a href="pyro.advection_weno.problems.html#module-pyro.advection_weno.problems.tophat">pyro.advection_weno.problems.tophat</a>
 </li>
         <li><a href="pyro.advection_weno.html#module-pyro.advection_weno.simulation">pyro.advection_weno.simulation</a>
+</li>
+        <li><a href="pyro.burgers.html#module-pyro.burgers">pyro.burgers</a>
+</li>
+        <li><a href="pyro.burgers.html#module-pyro.burgers.burgers_interface">pyro.burgers.burgers_interface</a>
+</li>
+        <li><a href="pyro.burgers.problems.html#module-pyro.burgers.problems">pyro.burgers.problems</a>
+</li>
+        <li><a href="pyro.burgers.problems.html#module-pyro.burgers.problems.converge">pyro.burgers.problems.converge</a>
+</li>
+        <li><a href="pyro.burgers.problems.html#module-pyro.burgers.problems.test">pyro.burgers.problems.test</a>
+</li>
+        <li><a href="pyro.burgers.problems.html#module-pyro.burgers.problems.tophat">pyro.burgers.problems.tophat</a>
+</li>
+        <li><a href="pyro.burgers.html#module-pyro.burgers.simulation">pyro.burgers.simulation</a>
 </li>
         <li><a href="pyro.compressible.html#module-pyro.compressible">pyro.compressible</a>
 </li>
@@ -1328,6 +1436,22 @@
 </li>
         <li><a href="pyro.incompressible.html#module-pyro.incompressible.simulation">pyro.incompressible.simulation</a>
 </li>
+        <li><a href="pyro.incompressible_viscous.html#module-pyro.incompressible_viscous">pyro.incompressible_viscous</a>
+</li>
+        <li><a href="pyro.incompressible_viscous.html#module-pyro.incompressible_viscous.BC">pyro.incompressible_viscous.BC</a>
+</li>
+        <li><a href="pyro.incompressible_viscous.problems.html#module-pyro.incompressible_viscous.problems">pyro.incompressible_viscous.problems</a>
+</li>
+        <li><a href="pyro.incompressible_viscous.problems.html#module-pyro.incompressible_viscous.problems.cavity">pyro.incompressible_viscous.problems.cavity</a>
+</li>
+        <li><a href="pyro.incompressible_viscous.problems.html#module-pyro.incompressible_viscous.problems.converge">pyro.incompressible_viscous.problems.converge</a>
+</li>
+        <li><a href="pyro.incompressible_viscous.problems.html#module-pyro.incompressible_viscous.problems.plot_cavity">pyro.incompressible_viscous.problems.plot_cavity</a>
+</li>
+        <li><a href="pyro.incompressible_viscous.problems.html#module-pyro.incompressible_viscous.problems.shear">pyro.incompressible_viscous.problems.shear</a>
+</li>
+        <li><a href="pyro.incompressible_viscous.html#module-pyro.incompressible_viscous.simulation">pyro.incompressible_viscous.simulation</a>
+</li>
         <li><a href="pyro.lm_atm.html#module-pyro.lm_atm">pyro.lm_atm</a>
 </li>
         <li><a href="pyro.lm_atm.html#module-pyro.lm_atm.LM_atm_interface">pyro.lm_atm.LM_atm_interface</a>
@@ -1416,6 +1540,18 @@
 </li>
         <li><a href="pyro.util.html#module-pyro.util.runparams">pyro.util.runparams</a>
 </li>
+        <li><a href="pyro.viscous_burgers.html#module-pyro.viscous_burgers">pyro.viscous_burgers</a>
+</li>
+        <li><a href="pyro.viscous_burgers.html#module-pyro.viscous_burgers.interface">pyro.viscous_burgers.interface</a>
+</li>
+        <li><a href="pyro.viscous_burgers.problems.html#module-pyro.viscous_burgers.problems">pyro.viscous_burgers.problems</a>
+</li>
+        <li><a href="pyro.viscous_burgers.problems.html#module-pyro.viscous_burgers.problems.converge">pyro.viscous_burgers.problems.converge</a>
+</li>
+        <li><a href="pyro.viscous_burgers.problems.html#module-pyro.viscous_burgers.problems.tophat">pyro.viscous_burgers.problems.tophat</a>
+</li>
+        <li><a href="pyro.viscous_burgers.html#module-pyro.viscous_burgers.simulation">pyro.viscous_burgers.simulation</a>
+</li>
       </ul></li>
   </ul></td>
 </tr></table>
@@ -1437,6 +1573,18 @@
 </li>
       <li><a href="pyro.html#pyro.simulation_null.NullSimulation">NullSimulation (class in pyro.simulation_null)</a>
 </li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyro.incompressible.html#pyro.incompressible.simulation.Simulation.other_source_term">other_source_term() (pyro.incompressible.simulation.Simulation method)</a>
+
+      <ul>
+        <li><a href="pyro.incompressible_viscous.html#pyro.incompressible_viscous.simulation.Simulation.other_source_term">(pyro.incompressible_viscous.simulation.Simulation method)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -1737,6 +1885,55 @@
 
       <ul>
         <li><a href="pyro.advection_weno.html#module-pyro.advection_weno.simulation">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.burgers
+
+      <ul>
+        <li><a href="pyro.burgers.html#module-pyro.burgers">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.burgers.burgers_interface
+
+      <ul>
+        <li><a href="pyro.burgers.html#module-pyro.burgers.burgers_interface">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.burgers.problems
+
+      <ul>
+        <li><a href="pyro.burgers.problems.html#module-pyro.burgers.problems">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.burgers.problems.converge
+
+      <ul>
+        <li><a href="pyro.burgers.problems.html#module-pyro.burgers.problems.converge">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.burgers.problems.test
+
+      <ul>
+        <li><a href="pyro.burgers.problems.html#module-pyro.burgers.problems.test">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.burgers.problems.tophat
+
+      <ul>
+        <li><a href="pyro.burgers.problems.html#module-pyro.burgers.problems.tophat">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.burgers.simulation
+
+      <ul>
+        <li><a href="pyro.burgers.html#module-pyro.burgers.simulation">module</a>
 </li>
       </ul></li>
       <li>
@@ -2131,8 +2328,6 @@
         <li><a href="pyro.compressible_rk.problems.html#module-pyro.compressible_rk.problems.quad">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     pyro.compressible_rk.problems.ramp
 
@@ -2161,6 +2356,8 @@
         <li><a href="pyro.compressible_rk.problems.html#module-pyro.compressible_rk.problems.sedov">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     pyro.compressible_rk.problems.sod
 
@@ -2533,6 +2730,62 @@
 </li>
       </ul></li>
       <li>
+    pyro.incompressible_viscous
+
+      <ul>
+        <li><a href="pyro.incompressible_viscous.html#module-pyro.incompressible_viscous">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.incompressible_viscous.BC
+
+      <ul>
+        <li><a href="pyro.incompressible_viscous.html#module-pyro.incompressible_viscous.BC">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.incompressible_viscous.problems
+
+      <ul>
+        <li><a href="pyro.incompressible_viscous.problems.html#module-pyro.incompressible_viscous.problems">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.incompressible_viscous.problems.cavity
+
+      <ul>
+        <li><a href="pyro.incompressible_viscous.problems.html#module-pyro.incompressible_viscous.problems.cavity">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.incompressible_viscous.problems.converge
+
+      <ul>
+        <li><a href="pyro.incompressible_viscous.problems.html#module-pyro.incompressible_viscous.problems.converge">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.incompressible_viscous.problems.plot_cavity
+
+      <ul>
+        <li><a href="pyro.incompressible_viscous.problems.html#module-pyro.incompressible_viscous.problems.plot_cavity">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.incompressible_viscous.problems.shear
+
+      <ul>
+        <li><a href="pyro.incompressible_viscous.problems.html#module-pyro.incompressible_viscous.problems.shear">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.incompressible_viscous.simulation
+
+      <ul>
+        <li><a href="pyro.incompressible_viscous.html#module-pyro.incompressible_viscous.simulation">module</a>
+</li>
+      </ul></li>
+      <li>
     pyro.lm_atm
 
       <ul>
@@ -2840,6 +3093,48 @@
         <li><a href="pyro.util.html#module-pyro.util.runparams">module</a>
 </li>
       </ul></li>
+      <li>
+    pyro.viscous_burgers
+
+      <ul>
+        <li><a href="pyro.viscous_burgers.html#module-pyro.viscous_burgers">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.viscous_burgers.interface
+
+      <ul>
+        <li><a href="pyro.viscous_burgers.html#module-pyro.viscous_burgers.interface">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.viscous_burgers.problems
+
+      <ul>
+        <li><a href="pyro.viscous_burgers.problems.html#module-pyro.viscous_burgers.problems">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.viscous_burgers.problems.converge
+
+      <ul>
+        <li><a href="pyro.viscous_burgers.problems.html#module-pyro.viscous_burgers.problems.converge">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.viscous_burgers.problems.tophat
+
+      <ul>
+        <li><a href="pyro.viscous_burgers.problems.html#module-pyro.viscous_burgers.problems.tophat">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyro.viscous_burgers.simulation
+
+      <ul>
+        <li><a href="pyro.viscous_burgers.html#module-pyro.viscous_burgers.simulation">module</a>
+</li>
+      </ul></li>
       <li><a href="pyro.html#pyro.pyro_sim.PyroBenchmark">PyroBenchmark (class in pyro.pyro_sim)</a>
 </li>
       <li><a href="pyro.html#pyro.test.PyroTest">PyroTest (class in pyro.test)</a>
@@ -2884,7 +3179,7 @@
       </ul></li>
       <li><a href="pyro.compressible_sr.html#pyro.compressible_sr.eos.rhoh_from_rho_p">rhoh_from_rho_p() (in module pyro.compressible_sr.eos)</a>
 </li>
-      <li><a href="pyro.incompressible.html#pyro.incompressible.incomp_interface.riemann">riemann() (in module pyro.incompressible.incomp_interface)</a>
+      <li><a href="pyro.burgers.html#pyro.burgers.burgers_interface.riemann">riemann() (in module pyro.burgers.burgers_interface)</a>
 
       <ul>
         <li><a href="pyro.lm_atm.html#pyro.lm_atm.LM_atm_interface.riemann">(in module pyro.lm_atm.LM_atm_interface)</a>
@@ -2892,7 +3187,7 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="pyro.incompressible.html#pyro.incompressible.incomp_interface.riemann_and_upwind">riemann_and_upwind() (in module pyro.incompressible.incomp_interface)</a>
+      <li><a href="pyro.burgers.html#pyro.burgers.burgers_interface.riemann_and_upwind">riemann_and_upwind() (in module pyro.burgers.burgers_interface)</a>
 
       <ul>
         <li><a href="pyro.lm_atm.html#pyro.lm_atm.LM_atm_interface.riemann_and_upwind">(in module pyro.lm_atm.LM_atm_interface)</a>
@@ -2928,6 +3223,10 @@
         <li><a href="pyro.html#pyro.pyro_sim.PyroBenchmark.run_sim">(pyro.pyro_sim.PyroBenchmark method)</a>
 </li>
       </ul></li>
+      <li><a href="pyro.html#pyro.test.run_test">run_test() (in module pyro.test)</a>
+</li>
+      <li><a href="pyro.html#pyro.test.run_test_star">run_test_star() (in module pyro.test)</a>
+</li>
       <li><a href="pyro.util.html#pyro.util.runparams.RuntimeParameters">RuntimeParameters (class in pyro.util.runparams)</a>
 </li>
   </ul></td>
@@ -2957,6 +3256,8 @@
 </li>
         <li><a href="pyro.advection_weno.html#pyro.advection_weno.simulation.Simulation">(class in pyro.advection_weno.simulation)</a>
 </li>
+        <li><a href="pyro.burgers.html#pyro.burgers.simulation.Simulation">(class in pyro.burgers.simulation)</a>
+</li>
         <li><a href="pyro.compressible.html#pyro.compressible.simulation.Simulation">(class in pyro.compressible.simulation)</a>
 </li>
         <li><a href="pyro.compressible_fv4.html#pyro.compressible_fv4.simulation.Simulation">(class in pyro.compressible_fv4.simulation)</a>
@@ -2973,9 +3274,13 @@
 </li>
         <li><a href="pyro.incompressible.html#pyro.incompressible.simulation.Simulation">(class in pyro.incompressible.simulation)</a>
 </li>
+        <li><a href="pyro.incompressible_viscous.html#pyro.incompressible_viscous.simulation.Simulation">(class in pyro.incompressible_viscous.simulation)</a>
+</li>
         <li><a href="pyro.lm_atm.html#pyro.lm_atm.simulation.Simulation">(class in pyro.lm_atm.simulation)</a>
 </li>
         <li><a href="pyro.swe.html#pyro.swe.simulation.Simulation">(class in pyro.swe.simulation)</a>
+</li>
+        <li><a href="pyro.viscous_burgers.html#pyro.viscous_burgers.simulation.Simulation">(class in pyro.viscous_burgers.simulation)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -3060,13 +3365,13 @@
         <li><a href="pyro.swe.html#pyro.swe.unsplit_fluxes.unsplit_fluxes">(in module pyro.swe.unsplit_fluxes)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pyro.particles.html#pyro.particles.particles.Particle.update">update() (pyro.particles.particles.Particle method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pyro.particles.html#pyro.particles.particles.Particles.update_particles">update_particles() (pyro.particles.particles.Particles method)</a>
 </li>
-      <li><a href="pyro.incompressible.html#pyro.incompressible.incomp_interface.upwind">upwind() (in module pyro.incompressible.incomp_interface)</a>
+      <li><a href="pyro.burgers.html#pyro.burgers.burgers_interface.upwind">upwind() (in module pyro.burgers.burgers_interface)</a>
 
       <ul>
         <li><a href="pyro.lm_atm.html#pyro.lm_atm.LM_atm_interface.upwind">(in module pyro.lm_atm.LM_atm_interface)</a>
@@ -3076,6 +3381,8 @@
 
       <ul>
         <li><a href="pyro.compressible_sr.html#pyro.compressible_sr.BC.user">(in module pyro.compressible_sr.BC)</a>
+</li>
+        <li><a href="pyro.incompressible_viscous.html#pyro.incompressible_viscous.BC.user">(in module pyro.incompressible_viscous.BC)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -3143,6 +3450,8 @@
       <ul>
         <li><a href="pyro.compressible_sr.html#pyro.compressible_sr.simulation.Simulation.write_extras">(pyro.compressible_sr.simulation.Simulation method)</a>
 </li>
+        <li><a href="pyro.incompressible_viscous.html#pyro.incompressible_viscous.simulation.Simulation.write_extras">(pyro.incompressible_viscous.simulation.Simulation method)</a>
+</li>
         <li><a href="pyro.lm_atm.html#pyro.lm_atm.simulation.Simulation.write_extras">(pyro.lm_atm.simulation.Simulation method)</a>
 </li>
         <li><a href="pyro.html#pyro.simulation_null.NullSimulation.write_extras">(pyro.simulation_null.NullSimulation method)</a>
@@ -3172,7 +3481,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, pyro development team.</p>
+    <p>&#169; Copyright 2023, pyro development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

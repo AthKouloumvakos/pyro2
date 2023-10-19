@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pyro.multigrid.general_MG &mdash; pyro 3.1.post105+g7552cee documentation</title>
+  <title>pyro.multigrid.general_MG &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -32,15 +32,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> pyro
-            <img src="../../../_static/logo.gif" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            pyro
+              <img src="../../../_static/logo.gif" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 3.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -61,12 +65,13 @@
 <p class="caption" role="heading"><span class="caption-text">Solvers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../advection_basics.html">Advection solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../burgers_basics.html">Burgers’ Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compressible_basics.html">Compressible hydrodynamics solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compressible_compare.html">Compressible solver comparisons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../multigrid_basics.html">Multigrid solvers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../multigrid-examples.html">Multigrid examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../multigrid.html">Multigrid Solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../diffusion_basics.html">Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../incompressible_basics.html">Incompressible hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../incompressible_viscous_basics.html">Incompressible viscous hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../lowmach_basics.html">Low Mach number hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../swe_basics.html">Shallow water solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../particles_basics.html">Particles</a></li>
@@ -88,7 +93,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zreferences.html">References</a></li>
 </ul>
 
         </div>
@@ -104,9 +109,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-      <li>pyro.multigrid.general_MG</li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pyro.multigrid.general_MG</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -137,13 +142,13 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">import</span> <span class="nn">pyro.multigrid.edge_coeffs</span> <span class="k">as</span> <span class="nn">ec</span>
-<span class="kn">import</span> <span class="nn">pyro.multigrid.MG</span> <span class="k">as</span> <span class="nn">MG</span>
+<span class="kn">from</span> <span class="nn">pyro.multigrid</span> <span class="kn">import</span> <span class="n">MG</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="GeneralMG2d"><a class="viewcode-back" href="../../../pyro.multigrid.html#pyro.multigrid.general_MG.GeneralMG2d">[docs]</a><span class="k">class</span> <span class="nc">GeneralMG2d</span><span class="p">(</span><span class="n">MG</span><span class="o">.</span><span class="n">CellCenterMG2d</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    this is a multigrid solver that supports our general elliptic</span>
 <span class="sd">    equation.</span>
 
@@ -167,7 +172,7 @@
                  <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
                  <span class="n">coeffs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">true_function</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vis_title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        here, coeffs is a CCData2d object</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -176,7 +181,7 @@
         <span class="c1"># scaled by 1/dx**2</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">beta_edge</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="c1"># initialize the MG object with the auxillary fields</span>
+        <span class="c1"># initialize the MG object with the auxiliary fields</span>
         <span class="n">MG</span><span class="o">.</span><span class="n">CellCenterMG2d</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">ng</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                                    <span class="n">xmin</span><span class="o">=</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">ymax</span><span class="p">,</span>
                                    <span class="n">xl_BC_type</span><span class="o">=</span><span class="n">xl_BC_type</span><span class="p">,</span> <span class="n">xr_BC_type</span><span class="o">=</span><span class="n">xr_BC_type</span><span class="p">,</span>
@@ -192,7 +197,7 @@
                                    <span class="n">true_function</span><span class="o">=</span><span class="n">true_function</span><span class="p">,</span> <span class="n">vis</span><span class="o">=</span><span class="n">vis</span><span class="p">,</span>
                                    <span class="n">vis_title</span><span class="o">=</span><span class="n">vis_title</span><span class="p">)</span>
 
-        <span class="c1"># the coefficents come in a dictionary.  Set the coefficients</span>
+        <span class="c1"># the coefficients come in a dictionary.  Set the coefficients</span>
         <span class="c1"># and restrict them down the hierarchy we only need to do this</span>
         <span class="c1"># once.  We need to hold the original coeffs in our grid so we</span>
         <span class="c1"># can do a ghost cell fill.</span>
@@ -223,7 +228,7 @@
             <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
 
 <div class="viewcode-block" id="GeneralMG2d.smooth"><a class="viewcode-back" href="../../../pyro.multigrid.html#pyro.multigrid.general_MG.GeneralMG2d.smooth">[docs]</a>    <span class="k">def</span> <span class="nf">smooth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">nsmooth</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Use red-black Gauss-Seidel iterations to smooth the solution</span>
 <span class="sd">        at a given level.  This is used at each stage of the V-cycle</span>
 <span class="sd">        (up and down) in the MG solution, but it can also be called</span>
@@ -258,7 +263,7 @@
         <span class="n">beta_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta_edge</span><span class="p">[</span><span class="n">level</span><span class="p">]</span><span class="o">.</span><span class="n">y</span>
 
         <span class="c1"># do red-black G-S</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsmooth</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsmooth</span><span class="p">):</span>
 
             <span class="c1"># do the red black updating in four decoupled groups</span>
             <span class="c1">#</span>
@@ -295,7 +300,7 @@
                     <span class="c1"># (beta_{i,j-1/2} - gamma^y_{i,j}) phi_{i,j-1}</span>
                     <span class="p">(</span><span class="n">beta_y</span><span class="o">.</span><span class="n">ip_jp</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">gamma_y</span><span class="o">.</span><span class="n">ip_jp</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="n">v</span><span class="o">.</span><span class="n">ip_jp</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="n">iy</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span> <span class="o">/</span> <span class="n">denom</span>
 
-                <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">grids</span><span class="p">[</span><span class="n">level</span><span class="p">]</span><span class="o">.</span><span class="n">fill_BC</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">vis</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -320,7 +325,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">frame</span> <span class="o">+=</span> <span class="mi">1</span></div>
 
     <span class="k">def</span> <span class="nf">_compute_residual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; compute the residual and store it in the r variable&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; compute the residual and store it in the r variable&quot;&quot;&quot;</span>
 
         <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grids</span><span class="p">[</span><span class="n">level</span><span class="p">]</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span>
         <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grids</span><span class="p">[</span><span class="n">level</span><span class="p">]</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;f&quot;</span><span class="p">)</span>
@@ -367,7 +372,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, pyro development team.</p>
+    <p>&#169; Copyright 2023, pyro development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Compressible solver comparisons &mdash; pyro 3.1.post105+g7552cee documentation</title>
+  <title>Compressible solver comparisons &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -26,7 +26,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Multigrid solvers" href="multigrid_basics.html" />
+    <link rel="next" title="Multigrid Solvers" href="multigrid.html" />
     <link rel="prev" title="Compressible hydrodynamics solvers" href="compressible_basics.html" /> 
 </head>
 
@@ -35,15 +35,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> pyro
-            <img src="_static/logo.gif" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pyro
+              <img src="_static/logo.gif" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 3.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -64,6 +68,7 @@
 <p class="caption" role="heading"><span class="caption-text">Solvers</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="advection_basics.html">Advection solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers_basics.html">Burgers’ Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_basics.html">Compressible hydrodynamics solvers</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Compressible solver comparisons</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#kelvin-helmholtz">Kelvin-Helmholtz</a></li>
@@ -73,10 +78,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#rayleigh-taylor">Rayleigh-Taylor</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid_basics.html">Multigrid solvers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid-examples.html">Multigrid examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multigrid.html">Multigrid Solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="diffusion_basics.html">Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="incompressible_basics.html">Incompressible hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompressible_viscous_basics.html">Incompressible viscous hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowmach_basics.html">Low Mach number hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swe_basics.html">Shallow water solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="particles_basics.html">Particles</a></li>
@@ -98,7 +103,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
 
         </div>
@@ -114,8 +119,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Compressible solver comparisons</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Compressible solver comparisons</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/compressible_compare.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -125,91 +130,67 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="compressible-solver-comparisons">
-<h1>Compressible solver comparisons<a class="headerlink" href="#compressible-solver-comparisons" title="Permalink to this heading">¶</a></h1>
+  <section id="compressible-solver-comparisons">
+<h1>Compressible solver comparisons<a class="headerlink" href="#compressible-solver-comparisons" title="Permalink to this heading"></a></h1>
 <p>We run various problems run with the different compressible solvers in pyro (standard Riemann, Runge-Kutta, fourth order).</p>
 <section id="kelvin-helmholtz">
-<h2>Kelvin-Helmholtz<a class="headerlink" href="#kelvin-helmholtz" title="Permalink to this heading">¶</a></h2>
+<h2>Kelvin-Helmholtz<a class="headerlink" href="#kelvin-helmholtz" title="Permalink to this heading"></a></h2>
 <p>The McNally Kelvin-Helmholtz problem sets up a heavier fluid moving in the negative x-direction sandwiched between regions of lighter fluid moving in the positive x-direction.</p>
 <p>The image below shows the KH problem initialized with McNally’s test. It ran on a 128 x 128 grid, with gamma = 1.7, and ran until t = 2.0. This is run with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
 span.prompt1:before {
   content: "$ ";
 }
-</style><span class="prompt1">./pyro_sim.py compressible kh inputs.kh kh.vbulk<span class="o">=</span><span class="m">0</span></span>
-<span class="prompt1">./pyro_sim.py compressible_rk kh inputs.kh kh.vbulk<span class="o">=</span><span class="m">0</span></span>
-<span class="prompt1">./pyro_sim.py compressible_fv4 kh inputs.kh kh.vbulk<span class="o">=</span><span class="m">0</span></span>
-<span class="prompt1">./pyro_sim.py compressible_sdc kh inputs.kh kh.vbulk<span class="o">=</span><span class="m">0</span></span>
+</style><span class="prompt1">pyro_sim.py<span class="w"> </span>compressible<span class="w"> </span>kh<span class="w"> </span>inputs.kh<span class="w"> </span>kh.vbulk<span class="o">=</span><span class="m">0</span></span>
+<span class="prompt1">pyro_sim.py<span class="w"> </span>compressible_rk<span class="w"> </span>kh<span class="w"> </span>inputs.kh<span class="w"> </span>kh.vbulk<span class="o">=</span><span class="m">0</span></span>
+<span class="prompt1">pyro_sim.py<span class="w"> </span>compressible_fv4<span class="w"> </span>kh<span class="w"> </span>inputs.kh<span class="w"> </span>kh.vbulk<span class="o">=</span><span class="m">0</span></span>
+<span class="prompt1">pyro_sim.py<span class="w"> </span>compressible_sdc<span class="w"> </span>kh<span class="w"> </span>inputs.kh<span class="w"> </span>kh.vbulk<span class="o">=</span><span class="m">0</span></span>
 </pre></div></div><img alt="_images/kh.png" class="align-center" src="_images/kh.png" />
 <p>We vary the velocity in the positive y-direction (vbulk) to see how effective the solvers are at preserving the initial shape.</p>
 </section>
 <section id="sedov">
-<h2>Sedov<a class="headerlink" href="#sedov" title="Permalink to this heading">¶</a></h2>
+<h2>Sedov<a class="headerlink" href="#sedov" title="Permalink to this heading"></a></h2>
 <p>The Sedov problem ran on a 128 x 128 grid, with gamma = 1.4, and until t = 0.1, which can be run as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">./pyro_sim.py compressible sedov inputs.sedov</span>
-<span class="prompt1">./pyro_sim.py compressible_rk sedov inputs.sedov</span>
-<span class="prompt1">./pyro_sim.py compressible_fv4 sedov inputs.sedov</span>
-<span class="prompt1">./pyro_sim.py compressible_sdc sedov inputs.sedov</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">pyro_sim.py<span class="w"> </span>compressible<span class="w"> </span>sedov<span class="w"> </span>inputs.sedov</span>
+<span class="prompt1">pyro_sim.py<span class="w"> </span>compressible_rk<span class="w"> </span>sedov<span class="w"> </span>inputs.sedov</span>
+<span class="prompt1">pyro_sim.py<span class="w"> </span>compressible_fv4<span class="w"> </span>sedov<span class="w"> </span>inputs.sedov</span>
+<span class="prompt1">pyro_sim.py<span class="w"> </span>compressible_sdc<span class="w"> </span>sedov<span class="w"> </span>inputs.sedov</span>
 </pre></div></div><img alt="_images/sedov.png" class="align-center" src="_images/sedov.png" />
 <img alt="_images/sedov_rk.png" class="align-center" src="_images/sedov_rk.png" />
 <img alt="_images/sedov_fv4.png" class="align-center" src="_images/sedov_fv4.png" />
 <img alt="_images/sedov_sdc.png" class="align-center" src="_images/sedov_sdc.png" />
 </section>
 <section id="quad">
-<h2>Quad<a class="headerlink" href="#quad" title="Permalink to this heading">¶</a></h2>
+<h2>Quad<a class="headerlink" href="#quad" title="Permalink to this heading"></a></h2>
 <p>The quad problem ran on a 256 x 256 grid until t = 0.8, which can be run as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">./pyro_sim.py compressible quad inputs.quad</span>
-<span class="prompt1">./pyro_sim.py compressible_rk quad inputs.quad</span>
-<span class="prompt1">./pyro_sim.py compressible_fv4 quad inputs.quad</span>
-<span class="prompt1">./pyro_sim.py compressible_sdc quad inputs.quad</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">pyro_sim.py<span class="w"> </span>compressible<span class="w"> </span>quad<span class="w"> </span>inputs.quad</span>
+<span class="prompt1">pyro_sim.py<span class="w"> </span>compressible_rk<span class="w"> </span>quad<span class="w"> </span>inputs.quad</span>
+<span class="prompt1">pyro_sim.py<span class="w"> </span>compressible_fv4<span class="w"> </span>quad<span class="w"> </span>inputs.quad</span>
+<span class="prompt1">pyro_sim.py<span class="w"> </span>compressible_sdc<span class="w"> </span>quad<span class="w"> </span>inputs.quad</span>
 </pre></div></div><img alt="_images/quad1.png" class="align-center" src="_images/quad1.png" />
 <img alt="_images/quad_rk.png" class="align-center" src="_images/quad_rk.png" />
 <img alt="_images/quad_fv4.png" class="align-center" src="_images/quad_fv4.png" />
 <img alt="_images/quad_sdc.png" class="align-center" src="_images/quad_sdc.png" />
 </section>
 <section id="bubble">
-<h2>Bubble<a class="headerlink" href="#bubble" title="Permalink to this heading">¶</a></h2>
+<h2>Bubble<a class="headerlink" href="#bubble" title="Permalink to this heading"></a></h2>
 <p>The bubble problem ran on a 128 x 256 grid until t = 3.0, which can be run as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">./pyro_sim.py compressible bubble inputs.bubble</span>
-<span class="prompt1">./pyro_sim.py compressible_rk bubble inputs.bubble</span>
-<span class="prompt1">./pyro_sim.py compressible_fv4 bubble inputs.bubble</span>
-<span class="prompt1">./pyro_sim.py compressible_sdc bubble inputs.bubble</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">pyro_sim.py<span class="w"> </span>compressible<span class="w"> </span>bubble<span class="w"> </span>inputs.bubble</span>
+<span class="prompt1">pyro_sim.py<span class="w"> </span>compressible_rk<span class="w"> </span>bubble<span class="w"> </span>inputs.bubble</span>
+<span class="prompt1">pyro_sim.py<span class="w"> </span>compressible_fv4<span class="w"> </span>bubble<span class="w"> </span>inputs.bubble</span>
+<span class="prompt1">pyro_sim.py<span class="w"> </span>compressible_sdc<span class="w"> </span>bubble<span class="w"> </span>inputs.bubble</span>
 </pre></div></div><img alt="_images/bubble1.png" class="align-center" src="_images/bubble1.png" />
 <img alt="_images/bubble_rk.png" class="align-center" src="_images/bubble_rk.png" />
 <img alt="_images/bubble_fv4.png" class="align-center" src="_images/bubble_fv4.png" />
 <img alt="_images/bubble_sdc.png" class="align-center" src="_images/bubble_sdc.png" />
 </section>
 <section id="rayleigh-taylor">
-<h2>Rayleigh-Taylor<a class="headerlink" href="#rayleigh-taylor" title="Permalink to this heading">¶</a></h2>
+<h2>Rayleigh-Taylor<a class="headerlink" href="#rayleigh-taylor" title="Permalink to this heading"></a></h2>
 <p>The Rayleigh-Taylor problem ran on a 64 x 192 grid until t = 3.0, which can be run as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">./pyro_sim.py compressible rt inputs.rt</span>
-<span class="prompt1">./pyro_sim.py compressible_rk rt inputs.rt</span>
-<span class="prompt1">./pyro_sim.py compressible_fv4 rt inputs.rt</span>
-<span class="prompt1">./pyro_sim.py compressible_sdc rt inputs.rt</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">pyro_sim.py<span class="w"> </span>compressible<span class="w"> </span>rt<span class="w"> </span>inputs.rt</span>
+<span class="prompt1">pyro_sim.py<span class="w"> </span>compressible_rk<span class="w"> </span>rt<span class="w"> </span>inputs.rt</span>
+<span class="prompt1">pyro_sim.py<span class="w"> </span>compressible_fv4<span class="w"> </span>rt<span class="w"> </span>inputs.rt</span>
+<span class="prompt1">pyro_sim.py<span class="w"> </span>compressible_sdc<span class="w"> </span>rt<span class="w"> </span>inputs.rt</span>
 </pre></div></div><img alt="_images/rt.png" class="align-center" src="_images/rt.png" />
 <img alt="_images/rt_rk.png" class="align-center" src="_images/rt_rk.png" />
 <img alt="_images/rt_fv4.png" class="align-center" src="_images/rt_fv4.png" />
@@ -222,13 +203,13 @@ span.prompt1:before {
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="compressible_basics.html" class="btn btn-neutral float-left" title="Compressible hydrodynamics solvers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="multigrid_basics.html" class="btn btn-neutral float-right" title="Multigrid solvers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="multigrid.html" class="btn btn-neutral float-right" title="Multigrid Solvers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, pyro development team.</p>
+    <p>&#169; Copyright 2023, pyro development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

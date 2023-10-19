@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Variable Coefficient Poisson &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/nbsphinx-code-cells.css" type="text/css" />
+      <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="General Linear Elliptic Equation" href="multigrid-general-linear.html" />
+    <link rel="prev" title="Constant-Coefficient Poisson Equation" href="multigrid-constant-coefficients.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pyro
+              <img src="_static/logo.gif" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">pyro basics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to pyro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Setting up pyro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notes.html">Notes on the numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design ideas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running.html">Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Working with output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Adding a problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh_basics.html">Mesh overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh-examples.html">Mesh examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Solvers</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="advection_basics.html">Advection solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers_basics.html">Burgers’ Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compressible_basics.html">Compressible hydrodynamics solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compressible_compare.html">Compressible solver comparisons</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="multigrid.html">Multigrid Solvers</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="multigrid_basics.html">Multigrid Class Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multigrid-constant-coefficients.html">Constant-Coefficient Poisson Equation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Variable Coefficient Poisson</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Setting-up-the-solver">Setting up the solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Solving-the-system">Solving the system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Visualizing-the-solution">Visualizing the solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Comparing-to-the-exact-solution">Comparing to the exact solution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="multigrid-general-linear.html">General Linear Elliptic Equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multigrid_exercises.html">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="diffusion_basics.html">Diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompressible_basics.html">Incompressible hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompressible_viscous_basics.html">Incompressible viscous hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowmach_basics.html">Low Mach number hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swe_basics.html">Shallow water solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles_basics.html">Particles</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis routines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Contributing and getting help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ack.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ack.html#history">History</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyro</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="multigrid.html">Multigrid Solvers</a></li>
+      <li class="breadcrumb-item active">Variable Coefficient Poisson</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/multigrid-variable-coeff.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Variable-Coefficient-Poisson">
+<h1>Variable Coefficient Poisson<a class="headerlink" href="#Variable-Coefficient-Poisson" title="Permalink to this heading"></a></h1>
+<p>We want to solve an equation of the form <span class="math notranslate nohighlight">\(\nabla \cdot (\alpha \nabla \phi) = f\)</span></p>
+<p>We’ll do this with periodic boundary conditions. Consider the coefficient <span class="math notranslate nohighlight">\(\alpha\)</span> of the form:</p>
+<div class="math notranslate nohighlight">
+\[\alpha = 2 + \cos(2 \pi x) \cos(2\pi x)\]</div>
+<p>and the source, <span class="math notranslate nohighlight">\(f\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[f = -16 \pi^2 \left ( \cos(2 \pi x) \cos(2\pi y) + 1 \right ) \sin(2\pi x) \sin(2\pi y)\]</div>
+<p>The solution to this (with periodic BCs) is:</p>
+<div class="math notranslate nohighlight">
+\[\phi = \sin(2\pi x) \sin(2\pi y)\]</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<section id="Setting-up-the-solver">
+<h2>Setting up the solver<a class="headerlink" href="#Setting-up-the-solver" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyro.multigrid.variable_coeff_MG</span> <span class="k">as</span> <span class="nn">MG</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">true</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">alpha</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">2.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mf">16.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> \
+        <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Let’s create a patch to store the coefficient <span class="math notranslate nohighlight">\(\alpha\)</span></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyro.mesh</span> <span class="kn">import</span> <span class="n">patch</span>
+<span class="kn">import</span> <span class="nn">pyro.mesh.boundary</span> <span class="k">as</span> <span class="nn">bnd</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">128</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">patch</span><span class="o">.</span><span class="n">Grid2d</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">ng</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">patch</span><span class="o">.</span><span class="n">CellCenterData2d</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="n">bc_alpha</span> <span class="o">=</span> <span class="n">bnd</span><span class="o">.</span><span class="n">BC</span><span class="p">(</span><span class="n">xlb</span><span class="o">=</span><span class="s2">&quot;periodic&quot;</span><span class="p">,</span> <span class="n">xrb</span><span class="o">=</span><span class="s2">&quot;periodic&quot;</span><span class="p">,</span>
+                  <span class="n">ylb</span><span class="o">=</span><span class="s2">&quot;periodic&quot;</span><span class="p">,</span> <span class="n">yrb</span><span class="o">=</span><span class="s2">&quot;periodic&quot;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">register_var</span><span class="p">(</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="n">bc_alpha</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Now we can fill the coefficient</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;alpha&quot;</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">alpha</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">x2d</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">y2d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>With periodic BCs, solvability requires that <span class="math notranslate nohighlight">\(f\)</span> sum to zero over the domain. Let’s check that.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rhs</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">x2d</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">y2d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rhs sum: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">rhs</span><span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">ilo</span><span class="p">:</span><span class="n">g</span><span class="o">.</span><span class="n">ihi</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">.</span><span class="n">jlo</span><span class="p">:</span><span class="n">g</span><span class="o">.</span><span class="n">jhi</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="si">:</span><span class="s2">20.10g</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+rhs sum:       2.07633187e-12
+</pre></div></div>
+</div>
+<p>Now we can create the multigrid object</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mg</span> <span class="o">=</span> <span class="n">MG</span><span class="o">.</span><span class="n">VarCoeffCCMG2d</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span>
+                       <span class="n">xl_BC_type</span><span class="o">=</span><span class="s2">&quot;periodic&quot;</span><span class="p">,</span> <span class="n">yl_BC_type</span><span class="o">=</span><span class="s2">&quot;periodic&quot;</span><span class="p">,</span>
+                       <span class="n">xr_BC_type</span><span class="o">=</span><span class="s2">&quot;periodic&quot;</span><span class="p">,</span> <span class="n">yr_BC_type</span><span class="o">=</span><span class="s2">&quot;periodic&quot;</span><span class="p">,</span>
+                       <span class="n">coeffs</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">coeffs_bc</span><span class="o">=</span><span class="n">bc_alpha</span><span class="p">,</span>
+                       <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">true_function</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+cc data: nx = 2, ny = 2, ng = 1
+         nvars = 4
+         variables:
+               v: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+               f: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+               r: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+          coeffs: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+
+cc data: nx = 4, ny = 4, ng = 1
+         nvars = 4
+         variables:
+               v: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+               f: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+               r: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+          coeffs: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+
+cc data: nx = 8, ny = 8, ng = 1
+         nvars = 4
+         variables:
+               v: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+               f: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+               r: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+          coeffs: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+
+cc data: nx = 16, ny = 16, ng = 1
+         nvars = 4
+         variables:
+               v: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+               f: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+               r: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+          coeffs: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+
+cc data: nx = 32, ny = 32, ng = 1
+         nvars = 4
+         variables:
+               v: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+               f: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+               r: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+          coeffs: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+
+cc data: nx = 64, ny = 64, ng = 1
+         nvars = 4
+         variables:
+               v: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+               f: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+               r: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+          coeffs: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+
+cc data: nx = 128, ny = 128, ng = 1
+         nvars = 4
+         variables:
+               v: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+               f: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+               r: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+          coeffs: min:    0.0000000000    max:    0.0000000000
+                  BCs: -x: periodic     +x: periodic     -y: periodic     +y: periodic
+
+</pre></div></div>
+</div>
+<p>Initialize the solution to 0</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mg</span><span class="o">.</span><span class="n">init_zeros</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Now initialize the RHS</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rhs</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">mg</span><span class="o">.</span><span class="n">x2d</span><span class="p">,</span> <span class="n">mg</span><span class="o">.</span><span class="n">y2d</span><span class="p">)</span>
+<span class="n">mg</span><span class="o">.</span><span class="n">init_RHS</span><span class="p">(</span><span class="n">rhs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Source norm =  81.3868428575047
+</pre></div></div>
+</div>
+</section>
+<section id="Solving-the-system">
+<h2>Solving the system<a class="headerlink" href="#Solving-the-system" title="Permalink to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">rtol</span><span class="o">=</span><span class="mf">1.e-11</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+source norm =  81.3868428575047
+&lt;&lt;&lt; beginning V-cycle (cycle 1) &gt;&gt;&gt;
+
+  level =  6, nx =  128, residual change:     81.3868 →     112.091
+  level =  5, nx =   64, residual change:     79.2048 →      101.02
+  level =  4, nx =   32, residual change:     71.2411 →     68.0705
+  level =  3, nx =   16, residual change:     47.6577 →     14.4578
+  level =  2, nx =    8, residual change:      9.8448 →   0.0171409
+  level =  1, nx =    4, residual change:   0.0106141 → 1.69329e-16
+  bottom solve
+  level =  1, nx =    4, residual change: 3.07629e-16 → 3.07629e-16
+  level =  2, nx =    8, residual change:   0.0168243 →   0.0168243
+  level =  3, nx =   16, residual change:     14.4901 →     14.4901
+  level =  4, nx =   32, residual change:      69.371 →      69.371
+  level =  5, nx =   64, residual change:     103.884 →     103.884
+  level =  6, nx =  128, residual change:     115.511 →     115.511
+cycle 1: relative err = 1.0000000000000007, residual err = 0.025573219961900512
+
+&lt;&lt;&lt; beginning V-cycle (cycle 2) &gt;&gt;&gt;
+
+  level =  6, nx =  128, residual change:     2.08132 →     2.02861
+  level =  5, nx =   64, residual change:     1.43441 →     1.83684
+  level =  4, nx =   32, residual change:     1.29871 →     1.24144
+  level =  3, nx =   16, residual change:    0.877452 →    0.256041
+  level =  2, nx =    8, residual change:    0.180588 → 0.000272285
+  level =  1, nx =    4, residual change: 0.000187447 → 6.55867e-17
+  bottom solve
+  level =  1, nx =    4, residual change: 1.19217e-16 → 1.19217e-16
+  level =  2, nx =    8, residual change: 0.000298554 → 0.000298554
+  level =  3, nx =   16, residual change:     0.33718 →     0.33718
+  level =  4, nx =   32, residual change:     1.72809 →     1.72809
+  level =  5, nx =   64, residual change:     2.60971 →     2.60971
+  level =  6, nx =  128, residual change:     2.89721 →     2.89721
+cycle 2: relative err = 2.1803634390217064, residual err = 0.0006486396426301177
+
+&lt;&lt;&lt; beginning V-cycle (cycle 3) &gt;&gt;&gt;
+
+  level =  6, nx =  128, residual change:   0.0527907 →   0.0515129
+  level =  5, nx =   64, residual change:   0.0364241 →   0.0468113
+  level =  4, nx =   32, residual change:    0.033097 →   0.0318323
+  level =  3, nx =   16, residual change:   0.0224975 →  0.00656631
+  level =  2, nx =    8, residual change:  0.00463131 → 6.95479e-06
+  level =  1, nx =    4, residual change:  4.7921e-06 → 3.47155e-16
+  bottom solve
+  level =  1, nx =    4, residual change: 6.30821e-16 → 6.30821e-16
+  level =  2, nx =    8, residual change: 7.63309e-06 → 7.63309e-06
+  level =  3, nx =   16, residual change:  0.00864876 →  0.00864876
+  level =  4, nx =   32, residual change:   0.0442789 →   0.0442789
+  level =  5, nx =   64, residual change:   0.0665472 →   0.0665472
+  level =  6, nx =  128, residual change:   0.0736819 →   0.0736819
+cycle 3: relative err = 0.04844393523115633, residual err = 1.659245815001406e-05
+
+&lt;&lt;&lt; beginning V-cycle (cycle 4) &gt;&gt;&gt;
+
+  level =  6, nx =  128, residual change:  0.00135041 →  0.00131762
+  level =  5, nx =   64, residual change: 0.000931668 →  0.00119765
+  level =  4, nx =   32, residual change: 0.000846751 → 0.000816239
+  level =  3, nx =   16, residual change: 0.000576837 → 0.000168502
+  level =  2, nx =    8, residual change:  0.00011884 → 1.78399e-07
+  level =  1, nx =    4, residual change: 1.22925e-07 →  2.1827e-16
+  bottom solve
+  level =  1, nx =    4, residual change: 3.96622e-16 → 3.96622e-16
+  level =  2, nx =    8, residual change: 1.95801e-07 → 1.95801e-07
+  level =  3, nx =   16, residual change: 0.000221902 → 0.000221902
+  level =  4, nx =   32, residual change:   0.0011347 →   0.0011347
+  level =  5, nx =   64, residual change:  0.00170278 →  0.00170278
+  level =  6, nx =  128, residual change:  0.00188597 →  0.00188597
+cycle 4: relative err = 0.0012759605329324085, residual err = 4.2728946362388976e-07
+
+&lt;&lt;&lt; beginning V-cycle (cycle 5) &gt;&gt;&gt;
+
+  level =  6, nx =  128, residual change: 3.47757e-05 → 3.38943e-05
+  level =  5, nx =   64, residual change: 2.39659e-05 →   3.073e-05
+  level =  4, nx =   32, residual change:  2.1726e-05 → 2.09217e-05
+  level =  3, nx =   16, residual change: 1.47845e-05 → 4.32098e-06
+  level =  2, nx =    8, residual change: 3.04737e-06 → 4.57173e-09
+  level =  1, nx =    4, residual change: 3.15043e-09 → 4.90471e-17
+  bottom solve
+  level =  1, nx =    4, residual change: 8.91242e-17 → 8.91242e-17
+  level =  2, nx =    8, residual change: 5.01821e-09 → 5.01821e-09
+  level =  3, nx =   16, residual change: 5.68972e-06 → 5.68972e-06
+  level =  4, nx =   32, residual change: 2.90707e-05 → 2.90707e-05
+  level =  5, nx =   64, residual change: 4.36992e-05 → 4.36992e-05
+  level =  6, nx =  128, residual change: 4.85557e-05 → 4.85557e-05
+cycle 5: relative err = 3.301203447716335e-05, residual err = 1.1068868945958364e-08
+
+&lt;&lt;&lt; beginning V-cycle (cycle 6) &gt;&gt;&gt;
+
+  level =  6, nx =  128, residual change:  9.0086e-07 → 8.76274e-07
+  level =  5, nx =   64, residual change: 6.19593e-07 → 7.90474e-07
+  level =  4, nx =   32, residual change: 5.58852e-07 → 5.36009e-07
+  level =  3, nx =   16, residual change: 3.78756e-07 → 1.10732e-07
+  level =  2, nx =    8, residual change: 7.80911e-08 → 1.17095e-10
+  level =  1, nx =    4, residual change: 8.06977e-11 → 5.69861e-16
+  bottom solve
+  level =  1, nx =    4, residual change:  1.0355e-15 →  1.0355e-15
+  level =  2, nx =    8, residual change: 1.28541e-10 → 1.28541e-10
+  level =  3, nx =   16, residual change: 1.45795e-07 → 1.45795e-07
+  level =  4, nx =   32, residual change:  7.4452e-07 →  7.4452e-07
+  level =  5, nx =   64, residual change: 1.12439e-06 → 1.12439e-06
+  level =  6, nx =  128, residual change: 1.25658e-06 → 1.25658e-06
+cycle 6: relative err = 8.544249588823554e-07, residual err = 2.88200772432267e-10
+
+&lt;&lt;&lt; beginning V-cycle (cycle 7) &gt;&gt;&gt;
+
+  level =  6, nx =  128, residual change: 2.34558e-08 → 2.27531e-08
+  level =  5, nx =   64, residual change:  1.6088e-08 → 2.03781e-08
+  level =  4, nx =   32, residual change: 1.44068e-08 → 1.37252e-08
+  level =  3, nx =   16, residual change: 9.69812e-09 → 2.83563e-09
+  level =  2, nx =    8, residual change: 1.99971e-09 → 2.99732e-12
+  level =  1, nx =    4, residual change: 2.06576e-12 → 1.74907e-17
+  bottom solve
+  level =  1, nx =    4, residual change: 3.17826e-17 → 3.17826e-17
+  level =  2, nx =    8, residual change: 3.29051e-12 → 3.29051e-12
+  level =  3, nx =   16, residual change: 3.73325e-09 → 3.73325e-09
+  level =  4, nx =   32, residual change: 1.90594e-08 → 1.90594e-08
+  level =  5, nx =   64, residual change: 2.89959e-08 → 2.89959e-08
+  level =  6, nx =  128, residual change: 3.26638e-08 → 3.26638e-08
+cycle 7: relative err = 2.210681933627904e-08, residual err = 7.534885150074738e-12
+
+</pre></div></div>
+</div>
+</section>
+<section id="Visualizing-the-solution">
+<h2>Visualizing the solution<a class="headerlink" href="#Visualizing-the-solution" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">mg</span><span class="o">.</span><span class="n">get_solution</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">v</span><span class="p">()),</span>
+              <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span>
+              <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">mg</span><span class="o">.</span><span class="n">xmin</span><span class="p">,</span> <span class="n">mg</span><span class="o">.</span><span class="n">xmax</span><span class="p">,</span> <span class="n">mg</span><span class="o">.</span><span class="n">ymin</span><span class="p">,</span> <span class="n">mg</span><span class="o">.</span><span class="n">ymax</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.colorbar.Colorbar at 0x7f07e656ea10&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/multigrid-variable-coeff_25_1.png" src="_images/multigrid-variable-coeff_25_1.png" />
+</div>
+</div>
+</section>
+<section id="Comparing-to-the-exact-solution">
+<h2>Comparing to the exact solution<a class="headerlink" href="#Comparing-to-the-exact-solution" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phi</span> <span class="o">=</span> <span class="n">true</span><span class="p">(</span><span class="n">mg</span><span class="o">.</span><span class="n">x2d</span><span class="p">,</span> <span class="n">mg</span><span class="o">.</span><span class="n">y2d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>With periodic BCs all around, there is nothing to normalize the solution, so we subtract off the average of <span class="math notranslate nohighlight">\(\phi\)</span> from the MG solution to ensure it is normalized (we’ll do the same with the true solution, just to be sure)</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">v</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">v</span><span class="p">())</span> <span class="o">/</span> <span class="n">N</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="n">phi</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">phi</span><span class="p">[</span><span class="n">mg</span><span class="o">.</span><span class="n">ilo</span><span class="p">:</span><span class="n">mg</span><span class="o">.</span><span class="n">ihi</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">mg</span><span class="o">.</span><span class="n">jlo</span><span class="p">:</span><span class="n">mg</span><span class="o">.</span><span class="n">jhi</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">N</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Now we can look at the norm of the error:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">error_norm</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;error = </span><span class="si">{</span><span class="n">error_norm</span><span class="si">:</span><span class="s2">20.10g</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+error =      9.754984685e-05
+</pre></div></div>
+</div>
+<p>and we can plot the error</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">v</span><span class="p">()),</span>
+               <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span>
+               <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">mg</span><span class="o">.</span><span class="n">xmin</span><span class="p">,</span> <span class="n">mg</span><span class="o">.</span><span class="n">xmax</span><span class="p">,</span> <span class="n">mg</span><span class="o">.</span><span class="n">ymin</span><span class="p">,</span> <span class="n">mg</span><span class="o">.</span><span class="n">ymax</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.colorbar.Colorbar at 0x7f07e4487880&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/multigrid-variable-coeff_33_1.png" src="_images/multigrid-variable-coeff_33_1.png" />
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="multigrid-constant-coefficients.html" class="btn btn-neutral float-left" title="Constant-Coefficient Poisson Equation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="multigrid-general-linear.html" class="btn btn-neutral float-right" title="General Linear Elliptic Equation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, pyro development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

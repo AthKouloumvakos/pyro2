@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pyro.particles.particles &mdash; pyro 3.1.post105+g7552cee documentation</title>
+  <title>pyro.particles.particles &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -32,15 +32,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> pyro
-            <img src="../../../_static/logo.gif" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            pyro
+              <img src="../../../_static/logo.gif" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 3.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -61,12 +65,13 @@
 <p class="caption" role="heading"><span class="caption-text">Solvers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../advection_basics.html">Advection solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../burgers_basics.html">Burgers’ Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compressible_basics.html">Compressible hydrodynamics solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compressible_compare.html">Compressible solver comparisons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../multigrid_basics.html">Multigrid solvers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../multigrid-examples.html">Multigrid examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../multigrid.html">Multigrid Solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../diffusion_basics.html">Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../incompressible_basics.html">Incompressible hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../incompressible_viscous_basics.html">Incompressible viscous hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../lowmach_basics.html">Low Mach number hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../swe_basics.html">Shallow water solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../particles_basics.html">Particles</a></li>
@@ -88,7 +93,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zreferences.html">References</a></li>
 </ul>
 
         </div>
@@ -104,9 +109,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-      <li>pyro.particles.particles</li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pyro.particles.particles</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -127,7 +132,7 @@
 
 
 <div class="viewcode-block" id="Particle"><a class="viewcode-back" href="../../../pyro.particles.html#pyro.particles.particles.Particle">[docs]</a><span class="k">class</span> <span class="nc">Particle</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class to hold properties of a single (massless) particle.</span>
 
 <span class="sd">    This class could be extended (i.e. inherited from) to</span>
@@ -141,19 +146,19 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">v</span> <span class="o">=</span> <span class="n">v</span>
 
 <div class="viewcode-block" id="Particle.pos"><a class="viewcode-back" href="../../../pyro.particles.html#pyro.particles.particles.Particle.pos">[docs]</a>    <span class="k">def</span> <span class="nf">pos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return position vector.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">])</span></div>
 
 <div class="viewcode-block" id="Particle.velocity"><a class="viewcode-back" href="../../../pyro.particles.html#pyro.particles.particles.Particle.velocity">[docs]</a>    <span class="k">def</span> <span class="nf">velocity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return velocity vector.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">v</span><span class="p">])</span></div>
 
 <div class="viewcode-block" id="Particle.update"><a class="viewcode-back" href="../../../pyro.particles.html#pyro.particles.particles.Particle.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Advect the particle and update its velocity.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">u</span> <span class="o">=</span> <span class="n">u</span>
@@ -162,7 +167,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span></div>
 
 <div class="viewcode-block" id="Particle.interpolate_velocity"><a class="viewcode-back" href="../../../pyro.particles.html#pyro.particles.particles.Particle.interpolate_velocity">[docs]</a>    <span class="k">def</span> <span class="nf">interpolate_velocity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">myg</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Interpolate the x- and y-velocities defined on grid myg to the</span>
 <span class="sd">        particle&#39;s position.</span>
 
@@ -205,13 +210,13 @@
 
 
 <div class="viewcode-block" id="Particles"><a class="viewcode-back" href="../../../pyro.particles.html#pyro.particles.particles.Particles">[docs]</a><span class="k">class</span> <span class="nc">Particles</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class to hold multiple particles.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sim_data</span><span class="p">,</span> <span class="n">bc</span><span class="p">,</span> <span class="n">n_particles</span><span class="p">,</span> <span class="n">particle_generator</span><span class="o">=</span><span class="s2">&quot;grid&quot;</span><span class="p">,</span>
                  <span class="n">pos_array</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">init_array</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize the Particles object.</span>
 
 <span class="sd">        Particles are stored as a dictionary, with their keys being tuples</span>
@@ -241,12 +246,12 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">sim_data</span> <span class="o">=</span> <span class="n">sim_data</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bc</span> <span class="o">=</span> <span class="n">bc</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">particles</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">particles</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="k">if</span> <span class="n">n_particles</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">msg</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span><span class="s2">&quot;ERROR: n_particles = </span><span class="si">%s</span><span class="s2"> &lt;= 0&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n_particles</span><span class="p">))</span>
 
-        <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">particle_generator</span><span class="p">):</span>  <span class="c1"># custom particle generator function</span>
+        <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">particle_generator</span><span class="p">):</span>  <span class="c1"># custom particle generator function</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">particles</span> <span class="o">=</span> <span class="n">particle_generator</span><span class="p">(</span><span class="n">n_particles</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">particle_generator</span> <span class="o">==</span> <span class="s2">&quot;random&quot;</span><span class="p">:</span>
@@ -262,7 +267,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">n_particles</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">particles</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Particles.randomly_generate_particles"><a class="viewcode-back" href="../../../pyro.particles.html#pyro.particles.particles.Particles.randomly_generate_particles">[docs]</a>    <span class="k">def</span> <span class="nf">randomly_generate_particles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_particles</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Randomly generate n_particles.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">myg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_data</span><span class="o">.</span><span class="n">grid</span>
@@ -279,7 +284,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">particles</span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)]</span> <span class="o">=</span> <span class="n">Particle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Particles.grid_generate_particles"><a class="viewcode-back" href="../../../pyro.particles.html#pyro.particles.particles.Particles.grid_generate_particles">[docs]</a>    <span class="k">def</span> <span class="nf">grid_generate_particles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_particles</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Generate particles equally spaced across the grid.</span>
 <span class="sd">        Currently has the same number of particles in the x and y</span>
 <span class="sd">        directions (so dx != dy unless the domain is square) -</span>
@@ -305,7 +310,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">particles</span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)]</span> <span class="o">=</span> <span class="n">Particle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Particles.array_generate_particles"><a class="viewcode-back" href="../../../pyro.particles.html#pyro.particles.particles.Particles.array_generate_particles">[docs]</a>    <span class="k">def</span> <span class="nf">array_generate_particles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos_array</span><span class="p">,</span> <span class="n">init_array</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Generate particles based on array of their positions. This is used</span>
 <span class="sd">        when reading particle data from file.</span>
 
@@ -329,7 +334,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">particles</span><span class="p">[(</span><span class="n">ix</span><span class="p">,</span> <span class="n">iy</span><span class="p">)]</span> <span class="o">=</span> <span class="n">Particle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Particles.update_particles"><a class="viewcode-back" href="../../../pyro.particles.html#pyro.particles.particles.Particles.update_particles">[docs]</a>    <span class="k">def</span> <span class="nf">update_particles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Update the particles on the grid. This is based off the</span>
 <span class="sd">        ``AdvectWithUcc`` function in AMReX, which used the midpoint</span>
 <span class="sd">        method to advance particles using the cell-centered velocity.</span>
@@ -355,7 +360,7 @@
         <span class="k">elif</span> <span class="n">v</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_data</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;y-velocity&quot;</span><span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">particles</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">particles</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
 
             <span class="c1"># save old position and predict location at dt/2</span>
             <span class="n">initial_position</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">pos</span><span class="p">()</span>
@@ -375,7 +380,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">enforce_particle_boundaries</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Particles.enforce_particle_boundaries"><a class="viewcode-back" href="../../../pyro.particles.html#pyro.particles.particles.Particles.enforce_particle_boundaries">[docs]</a>    <span class="k">def</span> <span class="nf">enforce_particle_boundaries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Enforce the particle boundaries</span>
 
 <span class="sd">        TODO: copying the dict and adding everything back again is messy</span>
@@ -384,7 +389,7 @@
 <span class="sd">        boundaries.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">old_particles</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">particles</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">particles</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">particles</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="n">myg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_data</span><span class="o">.</span><span class="n">grid</span>
 
@@ -400,7 +405,7 @@
             <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">myg</span><span class="o">.</span><span class="n">xmin</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">xlb</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;outflow&quot;</span><span class="p">,</span> <span class="s2">&quot;neumann&quot;</span><span class="p">]:</span>
                     <span class="k">continue</span>
-                <span class="k">elif</span> <span class="n">xlb</span> <span class="o">==</span> <span class="s2">&quot;periodic&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">xlb</span> <span class="o">==</span> <span class="s2">&quot;periodic&quot;</span><span class="p">:</span>
                     <span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">myg</span><span class="o">.</span><span class="n">xmax</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">myg</span><span class="o">.</span><span class="n">xmin</span>
                 <span class="k">elif</span> <span class="n">xlb</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;reflect-even&quot;</span><span class="p">,</span> <span class="s2">&quot;reflect-odd&quot;</span><span class="p">,</span> <span class="s2">&quot;dirichlet&quot;</span><span class="p">]:</span>
                     <span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">myg</span><span class="o">.</span><span class="n">xmin</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span>
@@ -411,7 +416,7 @@
             <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">myg</span><span class="o">.</span><span class="n">xmax</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">xrb</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;outflow&quot;</span><span class="p">,</span> <span class="s2">&quot;neumann&quot;</span><span class="p">]:</span>
                     <span class="k">continue</span>
-                <span class="k">elif</span> <span class="n">xrb</span> <span class="o">==</span> <span class="s2">&quot;periodic&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">xrb</span> <span class="o">==</span> <span class="s2">&quot;periodic&quot;</span><span class="p">:</span>
                     <span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">myg</span><span class="o">.</span><span class="n">xmin</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">myg</span><span class="o">.</span><span class="n">xmax</span>
                 <span class="k">elif</span> <span class="n">xrb</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;reflect-even&quot;</span><span class="p">,</span> <span class="s2">&quot;reflect-odd&quot;</span><span class="p">,</span> <span class="s2">&quot;dirichlet&quot;</span><span class="p">]:</span>
                     <span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">myg</span><span class="o">.</span><span class="n">xmax</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span>
@@ -422,7 +427,7 @@
             <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">myg</span><span class="o">.</span><span class="n">ymin</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">ylb</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;outflow&quot;</span><span class="p">,</span> <span class="s2">&quot;neumann&quot;</span><span class="p">]:</span>
                     <span class="k">continue</span>
-                <span class="k">elif</span> <span class="n">ylb</span> <span class="o">==</span> <span class="s2">&quot;periodic&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">ylb</span> <span class="o">==</span> <span class="s2">&quot;periodic&quot;</span><span class="p">:</span>
                     <span class="n">p</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">myg</span><span class="o">.</span><span class="n">ymax</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">myg</span><span class="o">.</span><span class="n">ymin</span>
                 <span class="k">elif</span> <span class="n">ylb</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;reflect-even&quot;</span><span class="p">,</span> <span class="s2">&quot;reflect-odd&quot;</span><span class="p">,</span> <span class="s2">&quot;dirichlet&quot;</span><span class="p">]:</span>
                     <span class="n">p</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">myg</span><span class="o">.</span><span class="n">ymin</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span>
@@ -433,7 +438,7 @@
             <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span> <span class="o">&gt;</span> <span class="n">myg</span><span class="o">.</span><span class="n">ymax</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">yrb</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;outflow&quot;</span><span class="p">,</span> <span class="s2">&quot;neumann&quot;</span><span class="p">]:</span>
                     <span class="k">continue</span>
-                <span class="k">elif</span> <span class="n">yrb</span> <span class="o">==</span> <span class="s2">&quot;periodic&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">yrb</span> <span class="o">==</span> <span class="s2">&quot;periodic&quot;</span><span class="p">:</span>
                     <span class="n">p</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">myg</span><span class="o">.</span><span class="n">ymin</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">myg</span><span class="o">.</span><span class="n">ymax</span>
                 <span class="k">elif</span> <span class="n">yrb</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;reflect-even&quot;</span><span class="p">,</span> <span class="s2">&quot;reflect-odd&quot;</span><span class="p">,</span> <span class="s2">&quot;dirichlet&quot;</span><span class="p">]:</span>
                     <span class="n">p</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">myg</span><span class="o">.</span><span class="n">ymax</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span>
@@ -445,13 +450,13 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">n_particles</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">particles</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Particles.get_positions"><a class="viewcode-back" href="../../../pyro.particles.html#pyro.particles.particles.Particles.get_positions">[docs]</a>    <span class="k">def</span> <span class="nf">get_positions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return an array of current particle positions.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">particles</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span></div>
 
 <div class="viewcode-block" id="Particles.get_init_positions"><a class="viewcode-back" href="../../../pyro.particles.html#pyro.particles.particles.Particles.get_init_positions">[docs]</a>    <span class="k">def</span> <span class="nf">get_init_positions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return initial positions of the particles as an array.</span>
 
 <span class="sd">        We defined the particles as a dictionary with their initial positions</span>
@@ -460,7 +465,7 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">particles</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span></div>
 
 <div class="viewcode-block" id="Particles.write_particles"><a class="viewcode-back" href="../../../pyro.particles.html#pyro.particles.particles.Particles.write_particles">[docs]</a>    <span class="k">def</span> <span class="nf">write_particles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Output the particles&#39; positions (and initial positions) to an HDF5 file.</span>
 
 <span class="sd">        Parameters</span>
@@ -483,7 +488,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, pyro development team.</p>
+    <p>&#169; Copyright 2023, pyro development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

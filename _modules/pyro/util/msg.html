@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pyro.util.msg &mdash; pyro 3.1.post105+g7552cee documentation</title>
+  <title>pyro.util.msg &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -32,15 +32,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> pyro
-            <img src="../../../_static/logo.gif" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            pyro
+              <img src="../../../_static/logo.gif" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 3.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -61,12 +65,13 @@
 <p class="caption" role="heading"><span class="caption-text">Solvers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../advection_basics.html">Advection solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../burgers_basics.html">Burgers’ Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compressible_basics.html">Compressible hydrodynamics solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compressible_compare.html">Compressible solver comparisons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../multigrid_basics.html">Multigrid solvers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../multigrid-examples.html">Multigrid examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../multigrid.html">Multigrid Solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../diffusion_basics.html">Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../incompressible_basics.html">Incompressible hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../incompressible_viscous_basics.html">Incompressible viscous hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../lowmach_basics.html">Low Mach number hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../swe_basics.html">Shallow water solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../particles_basics.html">Particles</a></li>
@@ -88,7 +93,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zreferences.html">References</a></li>
 </ul>
 
         </div>
@@ -104,9 +109,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-      <li>pyro.util.msg</li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pyro.util.msg</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -136,7 +141,7 @@
 
 
 <div class="viewcode-block" id="fail"><a class="viewcode-back" href="../../../pyro.util.html#pyro.util.msg.fail">[docs]</a><span class="k">def</span> <span class="nf">fail</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Output a string to the terminal and abort if we are running</span>
 <span class="sd">    non-interactively.  The string is colored red to indicate a</span>
 <span class="sd">    failure</span>
@@ -145,14 +150,12 @@
     <span class="n">traceback</span><span class="o">.</span><span class="n">print_stack</span><span class="p">()</span>
     <span class="c1"># only exit if we are not running in interactive mode.  sys.ps1 is</span>
     <span class="c1"># only defined in interactive mode.</span>
-    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="s1">&#39;ps1&#39;</span><span class="p">):</span>
-        <span class="k">return</span>
-    <span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="s1">&#39;ps1&#39;</span><span class="p">):</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="warning"><a class="viewcode-back" href="../../../pyro.util.html#pyro.util.msg.warning">[docs]</a><span class="k">def</span> <span class="nf">warning</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Output a string to the terminal colored orange to indicate a</span>
 <span class="sd">    warning</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -160,7 +163,7 @@
 
 
 <div class="viewcode-block" id="success"><a class="viewcode-back" href="../../../pyro.util.html#pyro.util.msg.success">[docs]</a><span class="k">def</span> <span class="nf">success</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Output a string to the terminal colored green to indicate</span>
 <span class="sd">    success</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -168,7 +171,7 @@
 
 
 <div class="viewcode-block" id="bold"><a class="viewcode-back" href="../../../pyro.util.html#pyro.util.msg.bold">[docs]</a><span class="k">def</span> <span class="nf">bold</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Output a string in a bold weight&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Output a string in a bold weight&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">_TermColors</span><span class="o">.</span><span class="n">BOLD</span> <span class="o">+</span> <span class="n">string</span> <span class="o">+</span> <span class="n">_TermColors</span><span class="o">.</span><span class="n">ENDC</span><span class="p">)</span></div>
 </pre></div>
 
@@ -179,7 +182,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, pyro development team.</p>
+    <p>&#169; Copyright 2023, pyro development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

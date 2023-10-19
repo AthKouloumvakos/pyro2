@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diffusion &mdash; pyro 3.1.post105+g7552cee documentation</title>
+  <title>Diffusion &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -29,7 +29,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Incompressible hydrodynamics solver" href="incompressible_basics.html" />
-    <link rel="prev" title="Multigrid examples" href="multigrid-examples.html" /> 
+    <link rel="prev" title="Exercises" href="multigrid_exercises.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -37,15 +37,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> pyro
-            <img src="_static/logo.gif" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pyro
+              <img src="_static/logo.gif" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 3.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -66,10 +70,10 @@
 <p class="caption" role="heading"><span class="caption-text">Solvers</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="advection_basics.html">Advection solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers_basics.html">Burgers’ Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_basics.html">Compressible hydrodynamics solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_compare.html">Compressible solver comparisons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid_basics.html">Multigrid solvers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid-examples.html">Multigrid examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multigrid.html">Multigrid Solvers</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Diffusion</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gaussian">gaussian</a></li>
@@ -83,6 +87,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="incompressible_basics.html">Incompressible hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompressible_viscous_basics.html">Incompressible viscous hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowmach_basics.html">Low Mach number hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swe_basics.html">Shallow water solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="particles_basics.html">Particles</a></li>
@@ -104,7 +109,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
 
         </div>
@@ -120,8 +125,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Diffusion</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Diffusion</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/diffusion_basics.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -131,32 +136,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="diffusion">
-<h1>Diffusion<a class="headerlink" href="#diffusion" title="Permalink to this heading">¶</a></h1>
+  <section id="diffusion">
+<h1>Diffusion<a class="headerlink" href="#diffusion" title="Permalink to this heading"></a></h1>
 <p>pyro solves the constant-conductivity diffusion equation:</p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial \phi}{\partial t} = k \nabla^2 \phi\]</div>
@@ -210,9 +191,9 @@ multigrid class. The main parameters that affect this solver are:</p>
 </li>
 </ul>
 <section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
 <section id="gaussian">
-<h3>gaussian<a class="headerlink" href="#gaussian" title="Permalink to this heading">¶</a></h3>
+<h3>gaussian<a class="headerlink" href="#gaussian" title="Permalink to this heading"></a></h3>
 <p>The gaussian problem initializes a strongly peaked Gaussian centered
 in the domain. The analytic solution for this shows that the profile
 remains a Gaussian, with a changing width and peak. This allows us to
@@ -221,7 +202,7 @@ compare our solver to the analytic solution. This is run as:</p>
 span.prompt1:before {
   content: "$ ";
 }
-</style><span class="prompt1">./pyro_sim.py diffusion gaussian inputs.gaussian</span>
+</style><span class="prompt1">pyro_sim.py<span class="w"> </span>diffusion<span class="w"> </span>gaussian<span class="w"> </span>inputs.gaussian</span>
 </pre></div></div><img alt="_images/gauss_diffusion.png" class="align-center" src="_images/gauss_diffusion.png" />
 <p>The above figure shows the scalar field after diffusing significantly
 from its initial strongly peaked state. We can compare to the analytic
@@ -233,12 +214,12 @@ restricted in range to bring out the detail at later times.</p>
 </section>
 </section>
 <section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading"></a></h2>
 <p>The best way to learn these methods is to play with them yourself. The
 exercises below are suggestions for explorations and features to add
 to the advection solver.</p>
 <section id="explorations">
-<h3>Explorations<a class="headerlink" href="#explorations" title="Permalink to this heading">¶</a></h3>
+<h3>Explorations<a class="headerlink" href="#explorations" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Test the convergence of the solver by varying the resolution and
 comparing to the analytic solution.</p></li>
@@ -248,11 +229,11 @@ well above 1?</p></li>
 </ul>
 </section>
 <section id="extensions">
-<h3>Extensions<a class="headerlink" href="#extensions" title="Permalink to this heading">¶</a></h3>
+<h3>Extensions<a class="headerlink" href="#extensions" title="Permalink to this heading"></a></h3>
 <ul class="simple">
-<li><p>Switch from Crank-Nicolson (2nd order in time) to backward’s Euler
+<li><p>Switch from Crank-Nicolson (2nd order in time) to backward Euler
 (1st order in time) and compare the solution and convergence. This
-should only require changing the source term and coefficents used in
+should only require changing the source term and coefficients used in
 setting up the multigrid solve. It does not require changes to the
 multigrid solver itself.</p></li>
 <li><p>Implement a non-constant coefficient diffusion solver—note: this
@@ -266,14 +247,14 @@ will require improving the multigrid solver.</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="multigrid-examples.html" class="btn btn-neutral float-left" title="Multigrid examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="multigrid_exercises.html" class="btn btn-neutral float-left" title="Exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="incompressible_basics.html" class="btn btn-neutral float-right" title="Incompressible hydrodynamics solver" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, pyro development team.</p>
+    <p>&#169; Copyright 2023, pyro development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

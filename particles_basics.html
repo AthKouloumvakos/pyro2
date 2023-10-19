@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Particles &mdash; pyro 3.1.post105+g7552cee documentation</title>
+  <title>Particles &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -35,15 +35,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> pyro
-            <img src="_static/logo.gif" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pyro
+              <img src="_static/logo.gif" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 3.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -64,12 +68,13 @@
 <p class="caption" role="heading"><span class="caption-text">Solvers</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="advection_basics.html">Advection solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers_basics.html">Burgers’ Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_basics.html">Compressible hydrodynamics solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_compare.html">Compressible solver comparisons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid_basics.html">Multigrid solvers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid-examples.html">Multigrid examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multigrid.html">Multigrid Solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="diffusion_basics.html">Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="incompressible_basics.html">Incompressible hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompressible_viscous_basics.html">Incompressible viscous hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowmach_basics.html">Low Mach number hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swe_basics.html">Shallow water solver</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Particles</a><ul>
@@ -95,7 +100,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
 
         </div>
@@ -111,8 +116,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Particles</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Particles</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/particles_basics.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -122,35 +127,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="particles">
-<h1>Particles<a class="headerlink" href="#particles" title="Permalink to this heading">¶</a></h1>
+  <section id="particles">
+<h1>Particles<a class="headerlink" href="#particles" title="Permalink to this heading"></a></h1>
 <p>A solver for modelling particles.</p>
 <section id="particles-particles-implementation-and-use">
-<h2><a class="reference internal" href="pyro.particles.html#module-pyro.particles.particles" title="pyro.particles.particles"><code class="xref py py-mod docutils literal notranslate"><span class="pre">particles.particles</span></code></a> implementation and use<a class="headerlink" href="#particles-particles-implementation-and-use" title="Permalink to this heading">¶</a></h2>
+<h2><a class="reference internal" href="pyro.particles.html#module-pyro.particles.particles" title="pyro.particles.particles"><code class="xref py py-mod docutils literal notranslate"><span class="pre">particles.particles</span></code></a> implementation and use<a class="headerlink" href="#particles-particles-implementation-and-use" title="Permalink to this heading"></a></h2>
 <p>We import the basic particles module functionality as:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">particles.particles</span> <span class="k">as</span> <span class="nn">particles</span>
 </pre></div>
@@ -184,7 +165,7 @@ constructor.</p></li>
 <a class="reference internal" href="pyro.particles.html#pyro.particles.particles.Particles" title="pyro.particles.particles.Particles"><code class="xref py py-func docutils literal notranslate"><span class="pre">Particles</span></code></a> constructor. This function takes the number of particles to be
 generated and returns a dictionary of <a class="reference internal" href="pyro.particles.html#pyro.particles.particles.Particle" title="pyro.particles.particles.Particle"><code class="xref py py-func docutils literal notranslate"><span class="pre">Particle</span></code></a> objects.</p></li>
 </ul>
-<p>We can turn on/off the particles solver using the following runtime paramters:</p>
+<p>We can turn on/off the particles solver using the following runtime parameters:</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 29%" />
@@ -237,7 +218,7 @@ in as arguments to this function as they cannot be accessed using the standard
 </div>
 </section>
 <section id="plotting-particles">
-<h2>Plotting particles<a class="headerlink" href="#plotting-particles" title="Permalink to this heading">¶</a></h2>
+<h2>Plotting particles<a class="headerlink" href="#plotting-particles" title="Permalink to this heading"></a></h2>
 <p>Given the <a class="reference internal" href="pyro.particles.html#pyro.particles.particles.Particles" title="pyro.particles.particles.Particles"><code class="xref py py-func docutils literal notranslate"><span class="pre">Particles</span></code></a> object <code class="docutils literal notranslate"><span class="pre">particles</span></code>, we can plot the particles by getting
 their positions using</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">particle_positions</span> <span class="o">=</span> <span class="n">particles</span><span class="o">.</span><span class="n">get_positions</span><span class="p">()</span>
@@ -283,7 +264,7 @@ plotted on top of the fluid density.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, pyro development team.</p>
+    <p>&#169; Copyright 2023, pyro development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

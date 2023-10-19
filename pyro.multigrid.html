@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pyro.multigrid package &mdash; pyro 3.1.post105+g7552cee documentation</title>
+  <title>pyro.multigrid package &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -37,15 +37,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> pyro
-            <img src="_static/logo.gif" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pyro
+              <img src="_static/logo.gif" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 3.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -66,12 +70,13 @@
 <p class="caption" role="heading"><span class="caption-text">Solvers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="advection_basics.html">Advection solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers_basics.html">Burgers’ Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_basics.html">Compressible hydrodynamics solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_compare.html">Compressible solver comparisons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid_basics.html">Multigrid solvers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid-examples.html">Multigrid examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multigrid.html">Multigrid Solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="diffusion_basics.html">Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="incompressible_basics.html">Incompressible hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompressible_viscous_basics.html">Incompressible viscous hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowmach_basics.html">Low Mach number hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swe_basics.html">Shallow water solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="particles_basics.html">Particles</a></li>
@@ -97,6 +102,8 @@
 <li class="toctree-l4"><a class="reference internal" href="pyro.advection_nonuniform.html">pyro.advection_nonuniform package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.advection_rk.html">pyro.advection_rk package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.advection_weno.html">pyro.advection_weno package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyro.burgers.html">pyro.burgers package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyro.viscous_burgers.html">pyro.viscous_burgers package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.compressible.html">pyro.compressible package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.compressible_fv4.html">pyro.compressible_fv4 package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.compressible_react.html">pyro.compressible_react package</a></li>
@@ -105,6 +112,7 @@
 <li class="toctree-l4"><a class="reference internal" href="pyro.compressible_sr.html">pyro.compressible_sr package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.diffusion.html">pyro.diffusion package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.incompressible.html">pyro.incompressible package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyro.incompressible_viscous.html">pyro.incompressible_viscous package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.lm_atm.html">pyro.lm_atm package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.mesh.html">pyro.mesh package</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">pyro.multigrid package</a></li>
@@ -125,7 +133,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
 
         </div>
@@ -141,10 +149,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="modules.html">pyro</a> &raquo;</li>
-          <li><a href="pyro.html">pyro package</a> &raquo;</li>
-      <li>pyro.multigrid package</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">pyro</a></li>
+          <li class="breadcrumb-item"><a href="pyro.html">pyro package</a></li>
+      <li class="breadcrumb-item active">pyro.multigrid package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/pyro.multigrid.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -154,32 +162,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="module-pyro.multigrid">
-<span id="pyro-multigrid-package"></span><h1>pyro.multigrid package<a class="headerlink" href="#module-pyro.multigrid" title="Permalink to this heading">¶</a></h1>
+  <section id="module-pyro.multigrid">
+<span id="pyro-multigrid-package"></span><h1>pyro.multigrid package<a class="headerlink" href="#module-pyro.multigrid" title="Permalink to this heading"></a></h1>
 <p>This is the pyro multigrid solver.  There are several versions.</p>
 <p>MG implements a second-order discretization of a constant-coefficient
 Helmholtz equation:</p>
@@ -193,10 +177,10 @@ Helmholtz equation:</p>
 \[\alpha \phi + \nabla \cdot { \beta \nabla \phi } + \gamma \cdot \nabla \phi = f\]</div>
 <p>All use pure V-cycles to solve elliptic problems</p>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-pyro.multigrid.MG">
-<span id="pyro-multigrid-mg-module"></span><h2>pyro.multigrid.MG module<a class="headerlink" href="#module-pyro.multigrid.MG" title="Permalink to this heading">¶</a></h2>
+<span id="pyro-multigrid-mg-module"></span><h2>pyro.multigrid.MG module<a class="headerlink" href="#module-pyro.multigrid.MG" title="Permalink to this heading"></a></h2>
 <p>The multigrid module provides a framework for solving elliptic
 problems.  A multigrid object is just a list of grids, from the finest
 mesh down (by factors of two) to a single interior zone (each grid has
@@ -247,14 +231,14 @@ of the solution array (i.e. excluding the ghost cells).</p>
 a.dx and a.dy are the grid spacings</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyro.multigrid.MG.CellCenterMG2d">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyro.multigrid.MG.</span></span><span class="sig-name descname"><span class="pre">CellCenterMG2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xl_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xr_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yl_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yr_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xl_BC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xr_BC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yl_BC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yr_BC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsmooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsmooth_bottom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_bc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vis_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyro.multigrid.MG.</span></span><span class="sig-name descname"><span class="pre">CellCenterMG2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xl_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xr_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yl_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yr_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xl_BC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xr_BC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yl_BC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yr_BC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsmooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsmooth_bottom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_bc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vis_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>The main multigrid class for cell-centered data.</p>
 <p>We require that nx = ny be a power of 2 and dx = dy, for
 simplicity</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyro.multigrid.MG.CellCenterMG2d.get_solution">
-<span class="sig-name descname"><span class="pre">get_solution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.get_solution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.get_solution" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_solution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.get_solution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.get_solution" title="Permalink to this definition"></a></dt>
 <dd><p>Return the solution after doing the MG solve</p>
 <p>If a grid object is passed in, then the solution is put on that
 grid – not the passed in grid must have the same dx and dy</p>
@@ -269,7 +253,7 @@ grid – not the passed in grid must have the same dx and dy</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyro.multigrid.MG.CellCenterMG2d.get_solution_gradient">
-<span class="sig-name descname"><span class="pre">get_solution_gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.get_solution_gradient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.get_solution_gradient" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_solution_gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.get_solution_gradient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.get_solution_gradient" title="Permalink to this definition"></a></dt>
 <dd><p>Return the gradient of the solution after doing the MG solve.  The
 x- and y-components are returned in separate arrays.</p>
 <p>If a grid object is passed in, then the gradient is computed on that
@@ -285,7 +269,7 @@ grid.  Note: the passed-in grid must have the same dx, dy</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyro.multigrid.MG.CellCenterMG2d.get_solution_object">
-<span class="sig-name descname"><span class="pre">get_solution_object</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.get_solution_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.get_solution_object" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_solution_object</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.get_solution_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.get_solution_object" title="Permalink to this definition"></a></dt>
 <dd><p>Return the full solution data object at the finest resolution
 after doing the MG solve</p>
 <dl class="field-list simple">
@@ -299,13 +283,13 @@ after doing the MG solve</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyro.multigrid.MG.CellCenterMG2d.grid_info">
-<span class="sig-name descname"><span class="pre">grid_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.grid_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.grid_info" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">grid_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.grid_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.grid_info" title="Permalink to this definition"></a></dt>
 <dd><p>Report simple grid information</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyro.multigrid.MG.CellCenterMG2d.init_RHS">
-<span class="sig-name descname"><span class="pre">init_RHS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.init_RHS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.init_RHS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">init_RHS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.init_RHS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.init_RHS" title="Permalink to this definition"></a></dt>
 <dd><p>Initialize the right hand side, f, of the Helmholtz equation
 <span class="math notranslate nohighlight">\((\alpha - \beta L) \phi = f\)</span></p>
 <dl class="field-list simple">
@@ -321,7 +305,7 @@ values to initialize the solution to the elliptic problem.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyro.multigrid.MG.CellCenterMG2d.init_solution">
-<span class="sig-name descname"><span class="pre">init_solution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.init_solution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.init_solution" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">init_solution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.init_solution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.init_solution" title="Permalink to this definition"></a></dt>
 <dd><p>Initialize the solution to the elliptic problem by passing in
 a value for all defined zones</p>
 <dl class="field-list simple">
@@ -337,13 +321,13 @@ values to initialize the solution to the elliptic problem.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyro.multigrid.MG.CellCenterMG2d.init_zeros">
-<span class="sig-name descname"><span class="pre">init_zeros</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.init_zeros"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.init_zeros" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">init_zeros</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.init_zeros"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.init_zeros" title="Permalink to this definition"></a></dt>
 <dd><p>Set the initial solution to zero</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyro.multigrid.MG.CellCenterMG2d.smooth">
-<span class="sig-name descname"><span class="pre">smooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsmooth</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.smooth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.smooth" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">smooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsmooth</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.smooth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.smooth" title="Permalink to this definition"></a></dt>
 <dd><p>Use red-black Gauss-Seidel iterations to smooth the solution
 at a given level.  This is used at each stage of the V-cycle
 (up and down) in the MG solution, but it can also be called
@@ -363,7 +347,7 @@ many more iterations).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyro.multigrid.MG.CellCenterMG2d.solve">
-<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rtol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-11</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.solve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.solve" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rtol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-11</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.solve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.solve" title="Permalink to this definition"></a></dt>
 <dd><p>The main driver for the multigrid solution of the Helmholtz
 equation.  This controls the V-cycles, smoothing at each
 step of the way and uses simple smoothing at the coarsest
@@ -383,7 +367,7 @@ the norm of the residual.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyro.multigrid.MG.CellCenterMG2d.v_cycle">
-<span class="sig-name descname"><span class="pre">v_cycle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.v_cycle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.v_cycle" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">v_cycle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/MG.html#CellCenterMG2d.v_cycle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.MG.CellCenterMG2d.v_cycle" title="Permalink to this definition"></a></dt>
 <dd><p>Perform a V-cycle for a single 2-level solve.  This is applied
 recursively do V-cycle through the entire hierarchy.</p>
 </dd></dl>
@@ -392,16 +376,16 @@ recursively do V-cycle through the entire hierarchy.</p>
 
 </section>
 <section id="module-pyro.multigrid.edge_coeffs">
-<span id="pyro-multigrid-edge-coeffs-module"></span><h2>pyro.multigrid.edge_coeffs module<a class="headerlink" href="#module-pyro.multigrid.edge_coeffs" title="Permalink to this heading">¶</a></h2>
+<span id="pyro-multigrid-edge-coeffs-module"></span><h2>pyro.multigrid.edge_coeffs module<a class="headerlink" href="#module-pyro.multigrid.edge_coeffs" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyro.multigrid.edge_coeffs.EdgeCoeffs">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyro.multigrid.edge_coeffs.</span></span><span class="sig-name descname"><span class="pre">EdgeCoeffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/edge_coeffs.html#EdgeCoeffs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.edge_coeffs.EdgeCoeffs" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyro.multigrid.edge_coeffs.</span></span><span class="sig-name descname"><span class="pre">EdgeCoeffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/edge_coeffs.html#EdgeCoeffs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.edge_coeffs.EdgeCoeffs" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>a simple container class to hold edge-centered coefficients
 and restrict them to coarse levels</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyro.multigrid.edge_coeffs.EdgeCoeffs.restrict">
-<span class="sig-name descname"><span class="pre">restrict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/edge_coeffs.html#EdgeCoeffs.restrict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.edge_coeffs.EdgeCoeffs.restrict" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">restrict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/edge_coeffs.html#EdgeCoeffs.restrict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.edge_coeffs.EdgeCoeffs.restrict" title="Permalink to this definition"></a></dt>
 <dd><p>restrict the edge values to a coarser grid.  Return a new
 EdgeCoeffs object</p>
 </dd></dl>
@@ -410,7 +394,7 @@ EdgeCoeffs object</p>
 
 </section>
 <section id="module-pyro.multigrid.general_MG">
-<span id="pyro-multigrid-general-mg-module"></span><h2>pyro.multigrid.general_MG module<a class="headerlink" href="#module-pyro.multigrid.general_MG" title="Permalink to this heading">¶</a></h2>
+<span id="pyro-multigrid-general-mg-module"></span><h2>pyro.multigrid.general_MG module<a class="headerlink" href="#module-pyro.multigrid.general_MG" title="Permalink to this heading"></a></h2>
 <p>This multigrid solver is build from multigrid/MG.py
 and implements a more general solver for an equation of the form</p>
 <div class="math notranslate nohighlight">
@@ -422,7 +406,7 @@ x- and y-components.</p>
 <p>A cell-centered discretization for phi is used throughout.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyro.multigrid.general_MG.GeneralMG2d">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyro.multigrid.general_MG.</span></span><span class="sig-name descname"><span class="pre">GeneralMG2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xl_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xr_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yl_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yr_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xl_BC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xr_BC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yl_BC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yr_BC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsmooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsmooth_bottom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coeffs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vis_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/general_MG.html#GeneralMG2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.general_MG.GeneralMG2d" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyro.multigrid.general_MG.</span></span><span class="sig-name descname"><span class="pre">GeneralMG2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xl_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xr_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yl_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yr_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xl_BC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xr_BC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yl_BC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yr_BC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsmooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsmooth_bottom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coeffs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vis_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/general_MG.html#GeneralMG2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.general_MG.GeneralMG2d" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#pyro.multigrid.MG.CellCenterMG2d" title="pyro.multigrid.MG.CellCenterMG2d"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellCenterMG2d</span></code></a></p>
 <p>this is a multigrid solver that supports our general elliptic
 equation.</p>
@@ -435,7 +419,7 @@ average beta to the edges).</p>
 understands these coeffs.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyro.multigrid.general_MG.GeneralMG2d.smooth">
-<span class="sig-name descname"><span class="pre">smooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsmooth</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/general_MG.html#GeneralMG2d.smooth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.general_MG.GeneralMG2d.smooth" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">smooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsmooth</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/general_MG.html#GeneralMG2d.smooth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.general_MG.GeneralMG2d.smooth" title="Permalink to this definition"></a></dt>
 <dd><p>Use red-black Gauss-Seidel iterations to smooth the solution
 at a given level.  This is used at each stage of the V-cycle
 (up and down) in the MG solution, but it can also be called
@@ -457,7 +441,7 @@ many more iterations).</p>
 
 </section>
 <section id="module-pyro.multigrid.variable_coeff_MG">
-<span id="pyro-multigrid-variable-coeff-mg-module"></span><h2>pyro.multigrid.variable_coeff_MG module<a class="headerlink" href="#module-pyro.multigrid.variable_coeff_MG" title="Permalink to this heading">¶</a></h2>
+<span id="pyro-multigrid-variable-coeff-mg-module"></span><h2>pyro.multigrid.variable_coeff_MG module<a class="headerlink" href="#module-pyro.multigrid.variable_coeff_MG" title="Permalink to this heading"></a></h2>
 <p>This multigrid solver is build from multigrid/MG.py and implements
 a variable coefficient solver for an equation of the form</p>
 <div class="math notranslate nohighlight">
@@ -466,7 +450,7 @@ a variable coefficient solver for an equation of the form</p>
 <p>A cell-centered discretization is used throughout.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyro.multigrid.variable_coeff_MG.VarCoeffCCMG2d">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyro.multigrid.variable_coeff_MG.</span></span><span class="sig-name descname"><span class="pre">VarCoeffCCMG2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xl_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xr_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yl_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yr_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsmooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsmooth_bottom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coeffs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coeffs_bc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vis_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/variable_coeff_MG.html#VarCoeffCCMG2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.variable_coeff_MG.VarCoeffCCMG2d" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyro.multigrid.variable_coeff_MG.</span></span><span class="sig-name descname"><span class="pre">VarCoeffCCMG2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xl_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xr_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yl_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yr_BC_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirichlet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsmooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsmooth_bottom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coeffs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coeffs_bc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vis_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/variable_coeff_MG.html#VarCoeffCCMG2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.variable_coeff_MG.VarCoeffCCMG2d" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#pyro.multigrid.MG.CellCenterMG2d" title="pyro.multigrid.MG.CellCenterMG2d"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellCenterMG2d</span></code></a></p>
 <p>this is a multigrid solver that supports variable coefficients</p>
 <p>we need to accept a coefficient array, coeffs, defined at each
@@ -476,7 +460,7 @@ down the MG grids once.</p>
 understands coeffs.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyro.multigrid.variable_coeff_MG.VarCoeffCCMG2d.smooth">
-<span class="sig-name descname"><span class="pre">smooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsmooth</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/variable_coeff_MG.html#VarCoeffCCMG2d.smooth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.variable_coeff_MG.VarCoeffCCMG2d.smooth" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">smooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsmooth</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/multigrid/variable_coeff_MG.html#VarCoeffCCMG2d.smooth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.multigrid.variable_coeff_MG.VarCoeffCCMG2d.smooth" title="Permalink to this definition"></a></dt>
 <dd><p>Use red-black Gauss-Seidel iterations to smooth the solution
 at a given level.  This is used at each stage of the V-cycle
 (up and down) in the MG solution, but it can also be called
@@ -510,7 +494,7 @@ many more iterations).</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, pyro development team.</p>
+    <p>&#169; Copyright 2023, pyro development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

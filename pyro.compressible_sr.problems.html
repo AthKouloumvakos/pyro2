@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pyro.compressible_sr.problems package &mdash; pyro 3.1.post105+g7552cee documentation</title>
+  <title>pyro.compressible_sr.problems package &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -35,15 +35,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> pyro
-            <img src="_static/logo.gif" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pyro
+              <img src="_static/logo.gif" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 3.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -64,12 +68,13 @@
 <p class="caption" role="heading"><span class="caption-text">Solvers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="advection_basics.html">Advection solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers_basics.html">Burgers’ Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_basics.html">Compressible hydrodynamics solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compressible_compare.html">Compressible solver comparisons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid_basics.html">Multigrid solvers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multigrid-examples.html">Multigrid examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multigrid.html">Multigrid Solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="diffusion_basics.html">Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="incompressible_basics.html">Incompressible hydrodynamics solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompressible_viscous_basics.html">Incompressible viscous hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowmach_basics.html">Low Mach number hydrodynamics solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swe_basics.html">Shallow water solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="particles_basics.html">Particles</a></li>
@@ -95,6 +100,8 @@
 <li class="toctree-l4"><a class="reference internal" href="pyro.advection_nonuniform.html">pyro.advection_nonuniform package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.advection_rk.html">pyro.advection_rk package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.advection_weno.html">pyro.advection_weno package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyro.burgers.html">pyro.burgers package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyro.viscous_burgers.html">pyro.viscous_burgers package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.compressible.html">pyro.compressible package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.compressible_fv4.html">pyro.compressible_fv4 package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.compressible_react.html">pyro.compressible_react package</a></li>
@@ -103,6 +110,7 @@
 <li class="toctree-l4 current"><a class="reference internal" href="pyro.compressible_sr.html">pyro.compressible_sr package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.diffusion.html">pyro.diffusion package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.incompressible.html">pyro.incompressible package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyro.incompressible_viscous.html">pyro.incompressible_viscous package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.lm_atm.html">pyro.lm_atm package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.mesh.html">pyro.mesh package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyro.multigrid.html">pyro.multigrid package</a></li>
@@ -123,7 +131,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
 
         </div>
@@ -139,11 +147,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="modules.html">pyro</a> &raquo;</li>
-          <li><a href="pyro.html">pyro package</a> &raquo;</li>
-          <li><a href="pyro.compressible_sr.html">pyro.compressible_sr package</a> &raquo;</li>
-      <li>pyro.compressible_sr.problems package</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">pyro</a></li>
+          <li class="breadcrumb-item"><a href="pyro.html">pyro package</a></li>
+          <li class="breadcrumb-item"><a href="pyro.compressible_sr.html">pyro.compressible_sr package</a></li>
+      <li class="breadcrumb-item active">pyro.compressible_sr.problems package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/pyro.compressible_sr.problems.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -153,230 +161,206 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="module-pyro.compressible_sr.problems">
-<span id="pyro-compressible-sr-problems-package"></span><h1>pyro.compressible_sr.problems package<a class="headerlink" href="#module-pyro.compressible_sr.problems" title="Permalink to this heading">¶</a></h1>
+  <section id="module-pyro.compressible_sr.problems">
+<span id="pyro-compressible-sr-problems-package"></span><h1>pyro.compressible_sr.problems package<a class="headerlink" href="#module-pyro.compressible_sr.problems" title="Permalink to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-pyro.compressible_sr.problems.acoustic_pulse">
-<span id="pyro-compressible-sr-problems-acoustic-pulse-module"></span><h2>pyro.compressible_sr.problems.acoustic_pulse module<a class="headerlink" href="#module-pyro.compressible_sr.problems.acoustic_pulse" title="Permalink to this heading">¶</a></h2>
+<span id="pyro-compressible-sr-problems-acoustic-pulse-module"></span><h2>pyro.compressible_sr.problems.acoustic_pulse module<a class="headerlink" href="#module-pyro.compressible_sr.problems.acoustic_pulse" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.acoustic_pulse.finalize">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.acoustic_pulse.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/acoustic_pulse.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.acoustic_pulse.finalize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.acoustic_pulse.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/acoustic_pulse.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.acoustic_pulse.finalize" title="Permalink to this definition"></a></dt>
 <dd><p>print out any information to the user at the end of the run</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.acoustic_pulse.init_data">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.acoustic_pulse.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">myd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/acoustic_pulse.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.acoustic_pulse.init_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.acoustic_pulse.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">myd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/acoustic_pulse.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.acoustic_pulse.init_data" title="Permalink to this definition"></a></dt>
 <dd><p>initialize the acoustic_pulse problem.  This comes from
 McCourquodale &amp; Coella 2011</p>
 </dd></dl>
 
 </section>
 <section id="module-pyro.compressible_sr.problems.advect">
-<span id="pyro-compressible-sr-problems-advect-module"></span><h2>pyro.compressible_sr.problems.advect module<a class="headerlink" href="#module-pyro.compressible_sr.problems.advect" title="Permalink to this heading">¶</a></h2>
+<span id="pyro-compressible-sr-problems-advect-module"></span><h2>pyro.compressible_sr.problems.advect module<a class="headerlink" href="#module-pyro.compressible_sr.problems.advect" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.advect.finalize">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.advect.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/advect.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.advect.finalize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.advect.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/advect.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.advect.finalize" title="Permalink to this definition"></a></dt>
 <dd><p>print out any information to the user at the end of the run</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.advect.init_data">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.advect.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/advect.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.advect.init_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.advect.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/advect.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.advect.init_data" title="Permalink to this definition"></a></dt>
 <dd><p>initialize a smooth advection problem for testing convergence</p>
 </dd></dl>
 
 </section>
 <section id="module-pyro.compressible_sr.problems.bubble">
-<span id="pyro-compressible-sr-problems-bubble-module"></span><h2>pyro.compressible_sr.problems.bubble module<a class="headerlink" href="#module-pyro.compressible_sr.problems.bubble" title="Permalink to this heading">¶</a></h2>
+<span id="pyro-compressible-sr-problems-bubble-module"></span><h2>pyro.compressible_sr.problems.bubble module<a class="headerlink" href="#module-pyro.compressible_sr.problems.bubble" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.bubble.finalize">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.bubble.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/bubble.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.bubble.finalize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.bubble.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/bubble.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.bubble.finalize" title="Permalink to this definition"></a></dt>
 <dd><p>print out any information to the user at the end of the run</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.bubble.init_data">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.bubble.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/bubble.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.bubble.init_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.bubble.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/bubble.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.bubble.init_data" title="Permalink to this definition"></a></dt>
 <dd><p>initialize the bubble problem</p>
 </dd></dl>
 
 </section>
 <section id="module-pyro.compressible_sr.problems.gresho">
-<span id="pyro-compressible-sr-problems-gresho-module"></span><h2>pyro.compressible_sr.problems.gresho module<a class="headerlink" href="#module-pyro.compressible_sr.problems.gresho" title="Permalink to this heading">¶</a></h2>
+<span id="pyro-compressible-sr-problems-gresho-module"></span><h2>pyro.compressible_sr.problems.gresho module<a class="headerlink" href="#module-pyro.compressible_sr.problems.gresho" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.gresho.finalize">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.gresho.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/gresho.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.gresho.finalize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.gresho.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/gresho.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.gresho.finalize" title="Permalink to this definition"></a></dt>
 <dd><p>print out any information to the userad at the end of the run</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.gresho.init_data">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.gresho.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/gresho.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.gresho.init_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.gresho.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/gresho.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.gresho.init_data" title="Permalink to this definition"></a></dt>
 <dd><p>initialize the Gresho vortex problem</p>
 </dd></dl>
 
 </section>
 <section id="module-pyro.compressible_sr.problems.hse">
-<span id="pyro-compressible-sr-problems-hse-module"></span><h2>pyro.compressible_sr.problems.hse module<a class="headerlink" href="#module-pyro.compressible_sr.problems.hse" title="Permalink to this heading">¶</a></h2>
+<span id="pyro-compressible-sr-problems-hse-module"></span><h2>pyro.compressible_sr.problems.hse module<a class="headerlink" href="#module-pyro.compressible_sr.problems.hse" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.hse.finalize">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.hse.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/hse.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.hse.finalize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.hse.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/hse.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.hse.finalize" title="Permalink to this definition"></a></dt>
 <dd><p>print out any information to the user at the end of the run</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.hse.init_data">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.hse.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/hse.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.hse.init_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.hse.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/hse.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.hse.init_data" title="Permalink to this definition"></a></dt>
 <dd><p>initialize the HSE problem</p>
 </dd></dl>
 
 </section>
 <section id="module-pyro.compressible_sr.problems.kh">
-<span id="pyro-compressible-sr-problems-kh-module"></span><h2>pyro.compressible_sr.problems.kh module<a class="headerlink" href="#module-pyro.compressible_sr.problems.kh" title="Permalink to this heading">¶</a></h2>
+<span id="pyro-compressible-sr-problems-kh-module"></span><h2>pyro.compressible_sr.problems.kh module<a class="headerlink" href="#module-pyro.compressible_sr.problems.kh" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.kh.finalize">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.kh.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/kh.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.kh.finalize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.kh.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/kh.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.kh.finalize" title="Permalink to this definition"></a></dt>
 <dd><p>print out any information to the user at the end of the run</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.kh.init_data">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.kh.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/kh.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.kh.init_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.kh.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/kh.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.kh.init_data" title="Permalink to this definition"></a></dt>
 <dd><p>initialize the Kelvin-Helmholtz problem</p>
 </dd></dl>
 
 </section>
 <section id="module-pyro.compressible_sr.problems.logo">
-<span id="pyro-compressible-sr-problems-logo-module"></span><h2>pyro.compressible_sr.problems.logo module<a class="headerlink" href="#module-pyro.compressible_sr.problems.logo" title="Permalink to this heading">¶</a></h2>
+<span id="pyro-compressible-sr-problems-logo-module"></span><h2>pyro.compressible_sr.problems.logo module<a class="headerlink" href="#module-pyro.compressible_sr.problems.logo" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.logo.finalize">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.logo.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/logo.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.logo.finalize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.logo.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/logo.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.logo.finalize" title="Permalink to this definition"></a></dt>
 <dd><p>print out any information to the user at the end of the run</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.logo.init_data">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.logo.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/logo.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.logo.init_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.logo.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/logo.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.logo.init_data" title="Permalink to this definition"></a></dt>
 <dd><p>initialize the sedov problem</p>
 </dd></dl>
 
 </section>
 <section id="module-pyro.compressible_sr.problems.quad">
-<span id="pyro-compressible-sr-problems-quad-module"></span><h2>pyro.compressible_sr.problems.quad module<a class="headerlink" href="#module-pyro.compressible_sr.problems.quad" title="Permalink to this heading">¶</a></h2>
+<span id="pyro-compressible-sr-problems-quad-module"></span><h2>pyro.compressible_sr.problems.quad module<a class="headerlink" href="#module-pyro.compressible_sr.problems.quad" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.quad.finalize">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.quad.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/quad.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.quad.finalize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.quad.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/quad.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.quad.finalize" title="Permalink to this definition"></a></dt>
 <dd><p>print out any information to the user at the end of the run</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.quad.init_data">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.quad.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/quad.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.quad.init_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.quad.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/quad.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.quad.init_data" title="Permalink to this definition"></a></dt>
 <dd><p>initialize the quadrant problem</p>
 </dd></dl>
 
 </section>
 <section id="module-pyro.compressible_sr.problems.rt">
-<span id="pyro-compressible-sr-problems-rt-module"></span><h2>pyro.compressible_sr.problems.rt module<a class="headerlink" href="#module-pyro.compressible_sr.problems.rt" title="Permalink to this heading">¶</a></h2>
+<span id="pyro-compressible-sr-problems-rt-module"></span><h2>pyro.compressible_sr.problems.rt module<a class="headerlink" href="#module-pyro.compressible_sr.problems.rt" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.rt.finalize">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.rt.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/rt.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.rt.finalize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.rt.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/rt.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.rt.finalize" title="Permalink to this definition"></a></dt>
 <dd><p>print out any information to the user at the end of the run</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.rt.init_data">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.rt.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/rt.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.rt.init_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.rt.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/rt.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.rt.init_data" title="Permalink to this definition"></a></dt>
 <dd><p>initialize the rt problem</p>
 </dd></dl>
 
 </section>
 <section id="module-pyro.compressible_sr.problems.rt2">
-<span id="pyro-compressible-sr-problems-rt2-module"></span><h2>pyro.compressible_sr.problems.rt2 module<a class="headerlink" href="#module-pyro.compressible_sr.problems.rt2" title="Permalink to this heading">¶</a></h2>
+<span id="pyro-compressible-sr-problems-rt2-module"></span><h2>pyro.compressible_sr.problems.rt2 module<a class="headerlink" href="#module-pyro.compressible_sr.problems.rt2" title="Permalink to this heading"></a></h2>
 <p>A RT problem with two distinct modes: short wave length on the
-left and long wavelenght on the right.  This allows one to see
+left and long wavelength on the right.  This allows one to see
 how the growth rate depends on wavenumber.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.rt2.finalize">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.rt2.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/rt2.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.rt2.finalize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.rt2.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/rt2.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.rt2.finalize" title="Permalink to this definition"></a></dt>
 <dd><p>print out any information to the user at the end of the run</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.rt2.init_data">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.rt2.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/rt2.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.rt2.init_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.rt2.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/rt2.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.rt2.init_data" title="Permalink to this definition"></a></dt>
 <dd><p>initialize the rt problem</p>
 </dd></dl>
 
 </section>
 <section id="module-pyro.compressible_sr.problems.sedov">
-<span id="pyro-compressible-sr-problems-sedov-module"></span><h2>pyro.compressible_sr.problems.sedov module<a class="headerlink" href="#module-pyro.compressible_sr.problems.sedov" title="Permalink to this heading">¶</a></h2>
+<span id="pyro-compressible-sr-problems-sedov-module"></span><h2>pyro.compressible_sr.problems.sedov module<a class="headerlink" href="#module-pyro.compressible_sr.problems.sedov" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.sedov.finalize">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.sedov.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/sedov.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.sedov.finalize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.sedov.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/sedov.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.sedov.finalize" title="Permalink to this definition"></a></dt>
 <dd><p>print out any information to the user at the end of the run</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.sedov.init_data">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.sedov.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/sedov.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.sedov.init_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.sedov.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/sedov.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.sedov.init_data" title="Permalink to this definition"></a></dt>
 <dd><p>initialize the sedov problem</p>
 </dd></dl>
 
 </section>
 <section id="module-pyro.compressible_sr.problems.sod">
-<span id="pyro-compressible-sr-problems-sod-module"></span><h2>pyro.compressible_sr.problems.sod module<a class="headerlink" href="#module-pyro.compressible_sr.problems.sod" title="Permalink to this heading">¶</a></h2>
+<span id="pyro-compressible-sr-problems-sod-module"></span><h2>pyro.compressible_sr.problems.sod module<a class="headerlink" href="#module-pyro.compressible_sr.problems.sod" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.sod.finalize">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.sod.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/sod.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.sod.finalize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.sod.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/sod.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.sod.finalize" title="Permalink to this definition"></a></dt>
 <dd><p>print out any information to the user at the end of the run</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.sod.init_data">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.sod.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/sod.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.sod.init_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.sod.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/sod.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.sod.init_data" title="Permalink to this definition"></a></dt>
 <dd><p>initialize the sod problem</p>
 </dd></dl>
 
 </section>
 <section id="module-pyro.compressible_sr.problems.test">
-<span id="pyro-compressible-sr-problems-test-module"></span><h2>pyro.compressible_sr.problems.test module<a class="headerlink" href="#module-pyro.compressible_sr.problems.test" title="Permalink to this heading">¶</a></h2>
+<span id="pyro-compressible-sr-problems-test-module"></span><h2>pyro.compressible_sr.problems.test module<a class="headerlink" href="#module-pyro.compressible_sr.problems.test" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.test.finalize">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.test.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/test.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.test.finalize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.test.</span></span><span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/test.html#finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.test.finalize" title="Permalink to this definition"></a></dt>
 <dd><p>print out any information to the user at the end of the run</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyro.compressible_sr.problems.test.init_data">
-<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.test.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/test.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.test.init_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyro.compressible_sr.problems.test.</span></span><span class="sig-name descname"><span class="pre">init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyro/compressible_sr/problems/test.html#init_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyro.compressible_sr.problems.test.init_data" title="Permalink to this definition"></a></dt>
 <dd><p>an init routine for unit testing</p>
 </dd></dl>
 
@@ -394,7 +378,7 @@ how the growth rate depends on wavenumber.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, pyro development team.</p>
+    <p>&#169; Copyright 2023, pyro development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
