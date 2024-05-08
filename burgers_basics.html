@@ -1,27 +1,28 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Burgers’ Equation &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  <title>Burgers’ Equation &mdash; pyro 3.1.post160+gd5920a3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=2e394b92" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-        <script src="_static/clipboard.min.js"></script>
-        <script src="_static/copybutton.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=bf82513a"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -130,10 +131,10 @@
            <div itemprop="articleBody">
              
   <section id="burgers-equation">
-<h1>Burgers’ Equation<a class="headerlink" href="#burgers-equation" title="Permalink to this heading"></a></h1>
+<h1>Burgers’ Equation<a class="headerlink" href="#burgers-equation" title="Link to this heading"></a></h1>
 <p>Burgers’ Equation is a nonlinear hyperbolic equation. It has the same form as the advection equation, except that the quantity being advected is the velocity itself.</p>
 <section id="inviscid-burgers">
-<h2><code class="docutils literal notranslate"><span class="pre">Inviscid</span> <span class="pre">Burgers</span></code><a class="headerlink" href="#inviscid-burgers" title="Permalink to this heading"></a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">Inviscid</span> <span class="pre">Burgers</span></code><a class="headerlink" href="#inviscid-burgers" title="Link to this heading"></a></h2>
 <p>A 2D inviscid Burgers’ Equation has the following form:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}u_t + u u_x + v u_y = 0\\
@@ -148,11 +149,6 @@ v_t + u v_x + v v_y = 0\end{split}\]</div>
 <ul>
 <li><p>section: [advection]</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 16%" />
-<col style="width: 51%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>option</p></th>
 <th class="head"><p>value</p></th>
@@ -169,11 +165,6 @@ v_t + u v_x + v v_y = 0\end{split}\]</div>
 </li>
 <li><p>section: [driver]</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 16%" />
-<col style="width: 51%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>option</p></th>
 <th class="head"><p>value</p></th>
@@ -190,11 +181,6 @@ v_t + u v_x + v v_y = 0\end{split}\]</div>
 </li>
 <li><p>section: [particles]</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 16%" />
-<col style="width: 51%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>option</p></th>
 <th class="head"><p>value</p></th>
@@ -218,7 +204,7 @@ v_t + u v_x + v v_y = 0\end{split}\]</div>
 <p>The figure above is generated using <code class="docutils literal notranslate"><span class="pre">burgers/problems/test.py</span></code>, which is used to test the validity of the solver. Bottom-left of the domain has a higher velocity than the top-right domain. With <span class="math notranslate nohighlight">\(u_{i,j}=v_{i,j}\)</span>, the wave travels diagonally to the top-right with a constant velocity that is equal to the shock speed. <code class="docutils literal notranslate"><span class="pre">burgers/problem/verify.py</span></code> can be used to calculate the wave speed using outputs from <code class="docutils literal notranslate"><span class="pre">test.py</span></code> and compare to the theoretical shock speed.</p>
 </section>
 <section id="viscous-burgers">
-<h2><code class="docutils literal notranslate"><span class="pre">Viscous</span> <span class="pre">Burgers</span></code><a class="headerlink" href="#viscous-burgers" title="Permalink to this heading"></a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">Viscous</span> <span class="pre">Burgers</span></code><a class="headerlink" href="#viscous-burgers" title="Link to this heading"></a></h2>
 <p>A 2D viscous Burgers’ Equation has the following form:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}u_t + u u_x + v u_y = \epsilon \left( u_{xx} + u_{yy}\right) \\
@@ -229,11 +215,6 @@ v_t + u v_x + v v_y = \epsilon \left( v_{xx} + v_{yy}\right)\end{split}\]</div>
 <ul>
 <li><p>section: [advection]</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 16%" />
-<col style="width: 51%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>option</p></th>
 <th class="head"><p>value</p></th>
@@ -250,11 +231,6 @@ v_t + u v_x + v v_y = \epsilon \left( v_{xx} + v_{yy}\right)\end{split}\]</div>
 </li>
 <li><p>section: [diffusion]</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 16%" />
-<col style="width: 51%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>option</p></th>
 <th class="head"><p>value</p></th>
@@ -271,11 +247,6 @@ v_t + u v_x + v v_y = \epsilon \left( v_{xx} + v_{yy}\right)\end{split}\]</div>
 </li>
 <li><p>section: [driver]</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 16%" />
-<col style="width: 51%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>option</p></th>
 <th class="head"><p>value</p></th>
@@ -292,11 +263,6 @@ v_t + u v_x + v v_y = \epsilon \left( v_{xx} + v_{yy}\right)\end{split}\]</div>
 </li>
 <li><p>section: [particles]</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 16%" />
-<col style="width: 51%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>option</p></th>
 <th class="head"><p>value</p></th>
@@ -316,7 +282,7 @@ v_t + u v_x + v v_y = \epsilon \left( v_{xx} + v_{yy}\right)\end{split}\]</div>
 </table>
 </li>
 </ul>
-<img alt="viscous_burgers.png" class="align-center" src="viscous_burgers.png" />
+<img alt="_images/viscous_burgers.png" class="align-center" src="_images/viscous_burgers.png" />
 <p>The figure above is generated using <code class="docutils literal notranslate"><span class="pre">viscous_burgers/problems/test.py</span></code>, which has the identical setup as in <code class="docutils literal notranslate"><span class="pre">burgers/problems/test.py</span></code>. With diffusion added to the system, we see the shock (discontinuity) is smeared out as system evolves.</p>
 </section>
 </section>

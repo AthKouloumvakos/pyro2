@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Variable Coefficient Poisson &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/nbsphinx-code-cells.css" type="text/css" />
-      <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  <title>Variable Coefficient Poisson &mdash; pyro 3.1.post160+gd5920a3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=2e394b92" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-        <script src="_static/clipboard.min.js"></script>
-        <script src="_static/copybutton.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=bf82513a"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -141,7 +142,7 @@
            <div itemprop="articleBody">
              
   <section id="Variable-Coefficient-Poisson">
-<h1>Variable Coefficient Poisson<a class="headerlink" href="#Variable-Coefficient-Poisson" title="Permalink to this heading"></a></h1>
+<h1>Variable Coefficient Poisson<a class="headerlink" href="#Variable-Coefficient-Poisson" title="Link to this heading"></a></h1>
 <p>We want to solve an equation of the form <span class="math notranslate nohighlight">\(\nabla \cdot (\alpha \nabla \phi) = f\)</span></p>
 <p>We’ll do this with periodic boundary conditions. Consider the coefficient <span class="math notranslate nohighlight">\(\alpha\)</span> of the form:</p>
 <div class="math notranslate nohighlight">
@@ -162,7 +163,7 @@
 </div>
 </div>
 <section id="Setting-up-the-solver">
-<h2>Setting up the solver<a class="headerlink" href="#Setting-up-the-solver" title="Permalink to this heading"></a></h2>
+<h2>Setting up the solver<a class="headerlink" href="#Setting-up-the-solver" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -385,7 +386,7 @@ Source norm =  81.3868428575047
 </div>
 </section>
 <section id="Solving-the-system">
-<h2>Solving the system<a class="headerlink" href="#Solving-the-system" title="Permalink to this heading"></a></h2>
+<h2>Solving the system<a class="headerlink" href="#Solving-the-system" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
@@ -523,7 +524,7 @@ cycle 7: relative err = 2.210681933627904e-08, residual err = 7.534885150074738e
 </div>
 </section>
 <section id="Visualizing-the-solution">
-<h2>Visualizing the solution<a class="headerlink" href="#Visualizing-the-solution" title="Permalink to this heading"></a></h2>
+<h2>Visualizing the solution<a class="headerlink" href="#Visualizing-the-solution" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -551,7 +552,7 @@ cycle 7: relative err = 2.210681933627904e-08, residual err = 7.534885150074738e
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.colorbar.Colorbar at 0x7f07e656ea10&gt;
+&lt;matplotlib.colorbar.Colorbar at 0x7f0f5f81bd30&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -563,7 +564,7 @@ cycle 7: relative err = 2.210681933627904e-08, residual err = 7.534885150074738e
 </div>
 </section>
 <section id="Comparing-to-the-exact-solution">
-<h2>Comparing to the exact solution<a class="headerlink" href="#Comparing-to-the-exact-solution" title="Permalink to this heading"></a></h2>
+<h2>Comparing to the exact solution<a class="headerlink" href="#Comparing-to-the-exact-solution" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
@@ -619,7 +620,7 @@ error =      9.754984685e-05
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.colorbar.Colorbar at 0x7f07e4487880&gt;
+&lt;matplotlib.colorbar.Colorbar at 0x7f0f5d52b070&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">

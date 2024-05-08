@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Constant-Coefficient Poisson Equation &mdash; pyro 3.1.post143+g7b7c6ba documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/nbsphinx-code-cells.css" type="text/css" />
-      <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  <title>Constant-Coefficient Poisson Equation &mdash; pyro 3.1.post160+gd5920a3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=2e394b92" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-        <script src="_static/clipboard.min.js"></script>
-        <script src="_static/copybutton.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=bf82513a"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -140,7 +141,7 @@
            <div itemprop="articleBody">
              
   <section id="Constant-Coefficient-Poisson-Equation">
-<h1>Constant-Coefficient Poisson Equation<a class="headerlink" href="#Constant-Coefficient-Poisson-Equation" title="Permalink to this heading"></a></h1>
+<h1>Constant-Coefficient Poisson Equation<a class="headerlink" href="#Constant-Coefficient-Poisson-Equation" title="Link to this heading"></a></h1>
 <p>We want to solve</p>
 <div class="math notranslate nohighlight">
 \[\phi_{xx} + \phi_{yy} = -2[(1-6x^2)y^2(1-y^2) + (1-6y^2)x^2(1-x^2)]\]</div>
@@ -161,7 +162,7 @@
 </div>
 </div>
 <section id="Setting-up-the-solver">
-<h2>Setting up the solver<a class="headerlink" href="#Setting-up-the-solver" title="Permalink to this heading"></a></h2>
+<h2>Setting up the solver<a class="headerlink" href="#Setting-up-the-solver" title="Link to this heading"></a></h2>
 <p>We start by setting up a multigrid object—this needs to know the number of zones our problem is defined on</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -307,7 +308,7 @@ Source norm =  1.097515813669473
 </div>
 </section>
 <section id="Performing-the-solve">
-<h2>Performing the solve<a class="headerlink" href="#Performing-the-solve" title="Permalink to this heading"></a></h2>
+<h2>Performing the solve<a class="headerlink" href="#Performing-the-solve" title="Link to this heading"></a></h2>
 <p>We can now solve—there are actually two different techniques we can do here. We can just do pure smoothing on the solution grid using <code class="docutils literal notranslate"><span class="pre">mg.smooth(mg.nlevels-1,</span> <span class="pre">N)</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the number of smoothing iterations. To get the solution <code class="docutils literal notranslate"><span class="pre">N</span></code> will need to be large and this will take a long time.</p>
 <p>Multigrid accelerates the smoothing. We can do a V-cycle multigrid solution using <code class="docutils literal notranslate"><span class="pre">mg.solve()</span></code></p>
 <div class="nbinput docutils container">
@@ -461,7 +462,7 @@ cycle 7: relative err = 7.062255558417692e-07, residual err = 2.590386214782638e
 </div>
 </section>
 <section id="Plotting-the-solution">
-<h2>Plotting the solution<a class="headerlink" href="#Plotting-the-solution" title="Permalink to this heading"></a></h2>
+<h2>Plotting the solution<a class="headerlink" href="#Plotting-the-solution" title="Link to this heading"></a></h2>
 <p>We can access the solution on the finest grid using <code class="docutils literal notranslate"><span class="pre">get_solution()</span></code></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -486,7 +487,7 @@ cycle 7: relative err = 7.062255558417692e-07, residual err = 2.590386214782638e
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.image.AxesImage at 0x7fc9f851e890&gt;
+&lt;matplotlib.image.AxesImage at 0x7f41e8077a90&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -525,7 +526,7 @@ cycle 7: relative err = 7.062255558417692e-07, residual err = 2.590386214782638e
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.image.AxesImage at 0x7fc9eff32b90&gt;
+&lt;matplotlib.image.AxesImage at 0x7f41e80743d0&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
